@@ -1,0 +1,32 @@
+:root{
+    --red: rgb(224, 143, 143);
+    --red-shade: rgb(200, 120, 120);
+    --maroon: rgb(139, 29, 29);
+    --maroon-shade: rgb(115, 25, 25);
+    --maroon-dark: rgb(100, 25, 25);
+
+    --vsc-light: rgb(45, 45, 45);
+    --vsc-dark: rgb(37, 37, 37);
+    --vsc-darkest: rgb(25, 25, 25);
+
+    --disabled: rgba(131, 70, 70, 0.5);
+
+    --slow-trans: all 0.3s ease-out;
+    --fast-trans: all 0.05s ease-out;  
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Minecraft';
+    letter-spacing: .15em;
+    color: black;
+    /* outline: 1px solid red; */
+}
+
+body {
+    color: var(--maroon-shade);
+    background: var(--vsc-dark);
+    height: 900px;
+}
