@@ -3,21 +3,55 @@
 <head>
     <script src="app.js" defer></script>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <!-- <link rel="icon" type="image/x-icon" href="src/paradigm.png"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="src/space.png">
     <link rel="stylesheet" href="styles.css"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Library</title>
+    <title>The Mediaverse</title>
 </head>
-<body>
+<body class="dark">
     <div class="wrapper">
         <div class="header">
+            <div class="nav">
+                <div class="logo"></div>
+                <div class="title">Mediaverse</div>
+                <div class="home nav-item"><li>Home</li></div>
+                <div class="forums nav-item"><li>Forums</li></div>
+                <div class="mylist nav-item"><li>My Lists <i class="fa fa-caret-down"></i></li></div>
+                <div class="filters nav-item">
+                    <li>Filters <i class="fa fa-caret-down"></i></li>
+                    <div class="filter-content">
+                        <li>Test 1</li>
+                        <li>Test 2</li>
+                        <li>Test 3</li>
+                    </div>
+                </div>
+                <div class="help nav-item"><li>Help</li></div>
+            </div>
 
+            <div class="search-box">
+                <img class="header-btn search-icon" src="src/magnify.png"/>
+                <form class="search-bar" action="#">
+                    <input id="search-input" type="text" autocomplete="off" placeholder="Search.." name="search">     
+                </form>
+                
+            </div> 
+
+            <div class="theme">
+                <img class="header-btn dark" src="src/weather-night.png"/>
+            </div>
+            <div class="notifs-icon">
+                <img class="header-btn" src="src/bell-ring.png"/>
+            </div>
+            <div class="account-icon">
+                <img class="header-btn" src="src/account.png"/>
+            </div>
         </div>
         <div class="container">
-            <div class="nav">
-
+            <div class="controls-wrapper">
+                <div class="controls"></div>
             </div>
             <div class="content-wrapper"></div>
         </div>
