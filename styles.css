@@ -364,17 +364,17 @@ body.light {
 
 #upload > i {
     margin-bottom: 2px;
-    scale: 175%;
+    scale: 150%;
 }
 #upload > i:hover {
-    scale: 200%;
+    scale: 175%;
 }
 
 #share > i {
-    scale: 170%;
+    scale: 145%;
 }
 #share > i:hover {
-    scale: 195%;
+    scale: 170%;
 }
 
 #view > i {
@@ -382,11 +382,11 @@ body.light {
 }
 
 #add > i {
-    scale: 200%;
+    scale: 165%;
 }
 
 #add > i:hover {
-    scale: 225%;
+    scale: 190%;
 }
 
 
@@ -430,14 +430,14 @@ body.light {
 
 .sbtn {
     /* padding-left: 5px; */
-    scale: 150%;
+    scale: 125%;
     transition: var(--fast-trans);
     margin-top: 4px;
     opacity: 80%;
 }
 .sbtn:hover {
     transition: var(--fast-trans);
-    scale: 175%;
+    scale: 150%;
     opacity: 100%;
 }
 
