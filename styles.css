@@ -76,7 +76,7 @@ body.dark {
 body.light {
     transition: var(--slow-trans);
     --red: #00aeff;
-    --red-shade: rgb(95, 149, 230);
+    --red-shade: rgb(26, 106, 226);
     --maroon: rgb(139, 29, 29);
     --maroon-shade: rgb(115, 25, 25);
     --maroon-dark: rgb(100, 25, 25);
@@ -84,9 +84,9 @@ body.light {
     --vsc-light: rgb(226, 226, 226);
     --vsc-dark: #dfdce0;
     --vsc-darkest: #fffbfb;
-    --shadow1: rgb(122, 122, 122);
+    --shadow1: rgb(177, 174, 174);
     --disabled: rgba(131, 70, 70, 0.5);
-    --shadow2: rgba(0, 0, 0, 0.2);
+    --shadow2: rgba(177, 174, 174, 0.2);
     --slow-trans: all 0.3s ease-out;
     --fast-trans: all 0.05s ease-out;
 
@@ -95,7 +95,9 @@ body.light {
     --black: #050505;
     --redder: #ff7070;
     --light-green: #9fff9c;
-    --light-red: #ff9c9c;
+    --light-red: #7ae0d3;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
 }
 
 .wrapper {
@@ -484,6 +486,7 @@ body.light {
 
 .field-title {
     font-size: 1.5em;
+    text-shadow: 2px 2px 5px black;
 }
 
 
