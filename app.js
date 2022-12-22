@@ -28,3 +28,17 @@ search_btn.addEventListener('click', () => {
     search_input.focus();
 });
 
+const s_wrapper = document.querySelector('.settings-wrapper');
+// const setting_caret = document.querySelector('.settingcaret')
+const settings_btn = document.querySelector('.sbtn');
+
+function openSettings() {
+    s_wrapper.classList.toggle('settings-open');
+}
+
+settings_btn.addEventListener('click', () => {
+    openSettings();
+});
+// setting_caret.addEventListener('click', () => {
+//     openSettings();
+// })

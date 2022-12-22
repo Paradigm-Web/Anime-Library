@@ -15,6 +15,7 @@
 <body class="dark">
     <div class="wrapper">
         <div class="header">
+
             <div class="nav">
                 <div class="logo"></div>
                 <div class="title">Mediaverse</div>
@@ -30,7 +31,6 @@
                 <form class="search-bar" action="#">
                     <input id="search-input" type="text" autocomplete="off" placeholder="Search.." name="search">     
                 </form>
-                
             </div> 
 
             <div class="theme">
@@ -43,34 +43,50 @@
                 <img class="header-btn" src="src/account.png" draggable="false"/>
             </div>
         </div>
+
         <div class="container">
+
             <div class="controls-wrapper">
-                <div id="add" class="controls"><i class="fa-solid fa-plus"></i>&nbspAdd</div>
-                <div id="upload" class="controls"><i class="fa fa-caret-up"></i>&nbspUpload</div>
-                <div id="share" class="controls"><i class="fa-solid fa-share"></i>&nbspShare</div>
-                <div class="space"></div>
-                <div id="view" class="controls"><i class="fa-solid fa-list"></i>&nbspView</div>
-                <div id="sort" class="controls"><i class="fa-solid fa-sort"></i>&nbspSort</div>
-                <div id="filters" class="controls"><i class="fa-solid fa-arrow-down-wide-short"></i>Filters</div>
-                <div id="settings" class="controls"><i class="fa-solid fa-gear"></i></div>
+                <div class="left-controls">
+                    <div id="add" class="controls"><i class="fa-solid fa-circle-plus"></i></i></div>
+                    <div id="upload" class="controls"><i class="fa-solid fa-upload"></i></i></div>
+                    <div id="share" class="controls"><i class="fa-solid fa-share"></i></div>
+                </div>
+                <div class="settings-wrapper">
+                    <div id="list-type" class="setting"><i class="fa-solid fa-bolt"></i>&nbspAnime</div>
+                    <div id="view" class="setting"><i class="fa-solid fa-list"></i>&nbspView</div>
+                    <div id="sort" class="setting"><i class="fa-solid fa-sort"></i>&nbspSort</div>
+                    <div id="filters" class="setting"><i class="fa-solid fa-arrow-down-wide-short"></i>Filters</div>
+                    
+                </div>
+                <div id="settings">
+                    <i class="sbtn controls fa-solid fa-gear"></i>
+                </div>
             </div>
-            <div class="content-wrapper"></div>
 
-            
-
-            <!-- <div class="controls-wrapper">
-                <div class="controls">
-                    <div class="add">
-                        <img class="control-img" src="src/more.png" title="Add" draggable="false">
-                    </div>
-                    <div class="big">
-                        <img class="control-img" src="src/more.png" title="Add" draggable="false">
-                    </div>
-                    <div class="test">
-                        <img class="control-img" src="src/more.png" title="Add" draggable="false">
+            <div class="content-wrapper">
+                <div class="current">
+                    <div class="field-title">Currently Watching</div>
+                    <div class="card-wrapper">
+                        <div class="add-placeholder"></div>
                     </div>
                 </div>
-            </div> -->
+                <div class="completed">
+                    <div class="field-title">Completed</div>
+                    <div class="card-wrapper">
+                        <div class="add-placeholder"></div>
+                    </div>
+                </div>
+                <div class="dropped">
+                    <div class="field-title">Dropped</div>
+                    <div class="card-wrapper">
+                        <div class="add-placeholder"></div>
+                    </div>
+                </div>
+                <!-- <div class="plan">
+                    <div class="field-title">Plan To Watch</div>
+                </div> -->
+            </div>
             
         </div>
     </div>
