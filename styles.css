@@ -507,12 +507,21 @@ body.light {
     width: 150px;
     border-radius: 15px;
     box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.253);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
 }
-
+.card-placeholder > i {
+    color: rgba(255, 255, 255, 0.5);
+}
 .card-placeholder:hover {
     transition: var(--fast-trans);
     background-color: rgba(51, 51, 51, 0.75);
     scale: 106%;
+}
+.card-placeholder:hover > i {
+    color: rgba(255, 255, 255, 0.75);
 }
 
 
