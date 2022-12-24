@@ -9,7 +9,7 @@ function addBookToLibrary() {
 }
 
 
-const theme = document.querySelector('.theme > img');
+const theme = document.querySelector('#theme > i');
 theme.addEventListener('click', () => {
     theme.classList.toggle('light');
     theme.classList.toggle('dark');
@@ -28,17 +28,14 @@ search_btn.addEventListener('click', () => {
     search_input.focus();
 });
 
-const s_wrapper = document.querySelector('.settings-wrapper');
-// const setting_caret = document.querySelector('.settingcaret')
-const settings_btn = document.querySelector('.sbtn');
+// const s_wrapper = document.querySelector('.settings-wrapper');
+// // const setting_caret = document.querySelector('.settingcaret')
+// const settings_btn = document.querySelector('.sbtn');
 
-function openSettings() {
-    s_wrapper.classList.toggle('settings-open');
-}
+// function openSettings() {
+//     s_wrapper.classList.toggle('settings-open');
+// }
 
-settings_btn.addEventListener('click', () => {
-    openSettings();
-});
-// setting_caret.addEventListener('click', () => {
+// settings_btn.addEventListener('click', () => {
 //     openSettings();
-// })
+// });
