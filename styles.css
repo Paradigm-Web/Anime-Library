@@ -53,15 +53,24 @@ body.dark {
     --main-mid: rgb(37, 37, 38);
     --main-dark: rgb(30, 30, 30);
 
-    --txt-light: rgba(228, 179, 179);
-    --txt-mid: rgb(224, 143, 143);
-    --txt-dark: rgb(200, 120, 120);
+    --txt-light: rgb(255, 158, 94);
+    --txt-mid: rgb(224, 123, 35);
+    --txt-dark: rgb(179, 91, 29);
     --txt-opac-1: rgba(228, 179, 179, 0.80);
-    --txt-opac-2: rgba(200, 120, 120, 0.5);
+    --txt-opac-2: rgba(228, 179, 179, 0.50);
+    --txt-opac-3: rgba(200, 120, 120, 0.5);
+
+    --oldtxt-light: rgba(228, 179, 179);
+    --oldtxt-mid: rgb(224, 143, 143);
+    --oldtxt-dark: rgb(200, 120, 120);
+    --oldtxt-opac-1: rgba(228, 179, 179, 0.80);
+    --oldtxt-opac-2: rgba(228, 179, 179, 0.50);
+    --oldtxt-opac-3: rgba(200, 120, 120, 0.5);
 
     --shadow1: rgb(0, 0, 0);
     --shadow2: rgba(0, 0, 0, 0.5);
-    --shadow3: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --shadow3: rgba(0, 0, 0, 0.65);
+    --shadow4: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 body.light {
@@ -154,9 +163,11 @@ body.light {
 
 .search-box {
     display: flex;
-    height: 48px;
+    justify-content: center;
+    height: 52px;
     padding: 6px;
     margin-left: 5%;
+    margin-right: .9em;
     transition: all .2s ease-in-out;
     width: 30px;
 }
@@ -165,7 +176,7 @@ body.light {
 .search-box-open {
     transition: all .2s ease-in-out;
     overflow: visible;
-    width: 275px;
+    width: 300px;
 }
 
 .search-bar {
@@ -197,70 +208,18 @@ body.light {
 }
 
 .search-icon {
-    filter: drop-shadow(var(--almost-white) 0 0 3px); 
-    margin-left: .1em;
-    scale: 80%;
-    opacity: 78%;
+    scale: 115% !important;
+    padding-top: .57em;
+    margin-right: 14px !important;
 }
-
-.search-icon:hover {
-    cursor: pointer;
-    transition: var(--fast-trans);
-    opacity: 55%;
-}
-
-
-
-/* #search-box {
-    margin-left: 5%;
-    display: flex;
-    width: 50px;
-}
-
-#search-box i {
-    scale: 115%;
-    margin-bottom: 1px;
-}
-
-#search-bar {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    width: 100px;
-}
-
-.search-box-open {
-    transition: all .2s ease-in-out;
-    overflow: visible;
-    width: 275px;
-}
-
-#search-input {
-    border: 1px var(--almost-white) solid;
-    height: 100%;
-    width: 100%;
-    background-color: rgb(26, 26, 26);
-    padding-left: 5px;
-    font-size: 15%;
-    color: rgb(134, 134, 134);
-}
-
-#search-input::placeholder {
-    color: rgb(134, 134, 134);
-} 
-
-#search-input:focus {
-    border: 1px var(--almost-white) solid;
-    outline: none;
-    color: white;
-} */
-
 
 
 #theme {
-    margin-left: 1.7em;
+    margin-left: .6em;
+}
+#theme i {
+    color: var(--txt-light);
+    text-shadow: var(--txt-mid) 0 0 4px;
 }
 /* #theme > .dark {
     animation: theme-dark .25s ease-out both
@@ -268,6 +227,98 @@ body.light {
 #theme > .light {
     animation: theme-light .25s ease-out both
 } */
+
+
+/* CONTENT */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: inset 0 0.2em 0.3em var(--shadow3);
+    margin: 0;
+    max-width: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 !important;
+    margin: 1em 0 2em 0;
+}
+
+.controls > nav {
+    flex: 1;
+    display: flex;
+    gap: 3em;
+}
+
+.setting,
+.control {
+    transition: var(--fast-trans);
+    opacity: 80%;
+    transform: scale(1.6);
+    color: var(--txt-light);
+    text-shadow: 2px 2px 5px var(--shadow2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.control:hover {
+    opacity: 95%;
+    text-shadow: 0 0 3px var(--txt-dark);
+    transform: scale(2);
+}
+
+
+.settings-wrapper {
+    transition: width .15s ease-in-out;
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-right: 1.5em;
+    width: 0;
+    overflow: hidden;
+}
+
+.settings-open {
+    transition: width .12s ease-in;
+    width: 400px;
+}
+
+#settings:hover {
+    scale: 100%;
+}
+
+.settings-clicked {
+    transition: all .2s ease-in-out;
+    transform: rotate(-180deg) scale(1.6) !important;
+}
+.settings-clicked:hover {
+    transition: var(--fast-trans);
+    scale: 125% !important;
+}
+
+.setting {
+    text-align: center;
+    font-weight: 500;
+    font-size: .7em;
+    margin: 10px 15px 10px 15px;
+    border-radius: 8px;
+}
+.setting:hover {
+    transition: var(--fast-trans);
+    opacity: 100%;
+    text-shadow: 1px 1px 3px var(--txt-dark);
+}
+.setting i {
+    padding-top: 2px;
+    padding-right: .1em;
+}
+
 
 /* FOOTER */
   
@@ -297,6 +348,44 @@ body.light {
 
 /* MODALS */
 
+.modal-wrapper {
+    transform: scale(0);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    transform: scale(.5);
+    background-color: var(--main-dark);
+    width: 45%;
+    height: 60%;
+    border-radius: .8em;
+    box-shadow: .3em .3em .5em black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.close {
+    margin-top: .6em;
+    margin-right: .6em;
+    scale: 70%;
+    opacity: 70%;
+}
+
+.modal-wrapper.active,
+.modal.active {
+    transition: all .1s ease-out;
+    transform: scale(1);
+}
 
 .overlay {
     position: fixed;
@@ -306,6 +395,9 @@ body.light {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.55);
+}
+.overlay.open {
+    display: block;
 }
 
 
