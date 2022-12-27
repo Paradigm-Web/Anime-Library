@@ -113,13 +113,15 @@ body.light {
     width: 25px;
     height: 25px;
     margin-right: 1.5em;
-    filter: drop-shadow(0 0 5px var(--txt-dark)) drop-shadow(0 0 15px var(--txt-opac-1));
+    animation: glow 2.5s ease-in-out infinite alternate;
+    -webkit-animation: glow 2.5s ease-in-out infinite alternate;
+    -moz-animation: glow 2.5s ease-in-out infinite alternate;
     cursor: pointer;
 }
 
 .header h1 {
     color: var(--txt-light);
-    text-shadow: var(--txt-mid) 0 0 6px, var(--txt-opac-1) 0 0 35px;
+    text-shadow: var(--txt-dark) 0 0 6px, var(--txt-opac-2) 0 0 25px;
     font-size: 30px;
     padding-right: 50px;
 }
@@ -160,9 +162,10 @@ body.light {
 }
 
 .head-tool i:hover {
-    opacity: 55%;
+    opacity: 65%;
     cursor: pointer;
 }
+
 
 #profile i {
     margin-right: 0;
@@ -241,8 +244,12 @@ body.light {
     animation: theme-light .2s ease-out both
 }
 
+#notifs > i:hover {
+    animation: swing .2s ease-out both infinite;
+}
 
-/* CONTENT */
+
+/* CONTROLS CONTENT */
 .main {
     display: flex;
     flex-direction: column;
@@ -335,6 +342,67 @@ body.light {
 }
 
 
+/* CONTENT AREA */
+.content.container {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8em;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.field-title {
+    color: var(--almost-white);
+    font-size: 1.4em;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.616);
+    opacity: 95%;
+}
+
+.card-wrapper {
+    flex: 1;
+    padding-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 1em;
+}
+
+.card-placeholder {
+    transition: var(--fast-trans);
+    background-color: rgba(51, 51, 51, 0.5);
+    height: 195px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.253);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+.add-card {
+    width: 150px !important;
+}
+.add-card > i {
+    color: var(--txt-light);
+    opacity: 60%;
+}
+.card-placeholder:hover {
+    cursor: pointer;
+    transition: var(--fast-trans);
+    background-color: rgba(77, 77, 77, 0.65);
+    scale: 106%;
+}
+.add-card:hover > i {
+    opacity: 75%;
+    text-shadow: 0 0 10px var(--txt-dark);
+}
+
+
 /* FOOTER */
   
 .footer {
@@ -422,9 +490,17 @@ body.light {
 */
 
 @keyframes swing {
-    0% { transform: rotate(3.5deg); }
-    50% { transform: rotate(-3.5deg); }
-    100% { transform: rotate(3.5deg); }
+    0% { transform: rotate(4.5deg); }
+    50% { transform: rotate(-4.5deg); }
+    100% { transform: rotate(4.5deg); }
+}
+
+@keyframes click {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(180deg) scale(.5); }
+    50% { transform: rotate(360deg) scale(.1); }
+    75% { transform: rotate(-180) scale(.5); }
+    100% { transform: rotate(0deg) scale(1);}
 }
 
 @keyframes theme-light {
@@ -441,6 +517,15 @@ body.light {
     50% { scale: 10%; transform: rotate(360deg);}
     75% {scale: 30%; content: url("src/weather-night.png"); }
     100% { transform: rotate(0deg); scale: 60%; content: url("src/weather-night.png"); }
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px var(--txt-dark)) drop-shadow(0 0 15px var(--txt-opac-1));
+    }
+    to {
+        filter: drop-shadow(0 0 3px var(--txt-dark)) drop-shadow(0 0 25px var(--txt-opac-1));
+    }
 }
 
 

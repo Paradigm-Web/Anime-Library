@@ -8,6 +8,10 @@ function addBookToLibrary() {
     
 }
 
+/**
+ * HEADER HANDLERS
+ */
+
 const dark = true;
 const theme = document.querySelector('#theme > img');
 theme.addEventListener('click', () => {
@@ -29,6 +33,13 @@ search_btn.addEventListener('click', () => {
     document.querySelector('.search-box').classList.toggle('search-box-open');
     search_input.focus();
 });
+
+
+/**
+ * AWFUL MODAL HANDLERS
+ * @param {*} modal 
+ * @param {*} wrapper 
+ */
 
 function toggleModal(modal, wrapper) {
     wrapper.classList.toggle('active');
@@ -84,8 +95,15 @@ settings_btn.addEventListener('click', () => {
 })
 
 
-
-
+/**
+ * ADD CARD HANDLERS
+ */
+const add_cards = document.querySelectorAll('.add-card');
+add_cards.forEach((c) => {
+    c.addEventListener('click', () => {
+        toggleModal(add_modal, add_wrapper);
+    })
+});
 
 
 
