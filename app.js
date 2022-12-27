@@ -8,13 +8,15 @@ function addBookToLibrary() {
     
 }
 
-
-const theme = document.querySelector('#theme > i');
+const dark = true;
+const theme = document.querySelector('#theme > img');
 theme.addEventListener('click', () => {
-    theme.classList.toggle('light');
+    theme.classList.toggle('fa-moon');
     theme.classList.toggle('dark');
-    document.body.classList.toggle('light');
-    document.body.classList.toggle('dark');
+    theme.classList.toggle('light');
+    theme.classList.toggle('fa-sun');
+    // document.body.classList.toggle('light');
+    // document.body.classList.toggle('dark');
 });
 
 const search_input = document.querySelector('#search-input');
