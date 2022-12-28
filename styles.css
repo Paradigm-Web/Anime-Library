@@ -61,7 +61,7 @@ body.dark {
     --txt-opac-1: rgba(228, 204, 172, 0.7);
     --txt-opac-2: rgba(233, 208, 176, 0.5);
     --txt-opac-3: rgba(200, 120, 120, 0.5);
-    --txt-black-opac: rgba(0, 0, 0, 0.7);
+    --txt-black-opac: rgba(0, 0, 0, 0.9);
 
     --oldtxt-light: rgba(228, 179, 179);
     --oldtxt-mid: rgb(224, 143, 143);
@@ -441,7 +441,7 @@ body.light {
     overflow: hidden;
     border-radius: 0 0 15px 15px;
     box-shadow: 3px 0 4px var(--shadow2);
-    text-shadow: 1px 1px 3px var(--shadow2);
+    /* text-shadow: 1px 1px 3px var(--shadow2); */
     text-align: center;
     color: var(--txt-black-opac);
     font-size: .7em;
