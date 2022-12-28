@@ -126,6 +126,18 @@ function updateStatus() {
 const increase_status = document.querySelector('#status i');
 increase_status.addEventListener('click', () => {
     updateStatus();
+});
+
+
+const card_wrapper = document.querySelector('#card-wrapper')
+const card_modal = document.querySelector('#card-modal');
+const expand_info = document.querySelector('#expand-info');
+expand_info.addEventListener('click', () => {
+    toggleModal(card_modal, card_wrapper);
+});
+const close_card = document.querySelector('#close-card');
+close_card.addEventListener('click', () => {
+    toggleModal(card_modal, card_wrapper);
 })
 
 

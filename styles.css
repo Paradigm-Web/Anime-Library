@@ -61,7 +61,7 @@ body.dark {
     --txt-opac-1: rgba(228, 204, 172, 0.7);
     --txt-opac-2: rgba(233, 208, 176, 0.5);
     --txt-opac-3: rgba(200, 120, 120, 0.5);
-    --txt-black-opac: rgba(0, 0, 0, 0.8);
+    --txt-black-opac: rgba(0, 0, 0, 0.7);
 
     --oldtxt-light: rgba(228, 179, 179);
     --oldtxt-mid: rgb(224, 143, 143);
@@ -415,68 +415,7 @@ body.light {
     text-shadow: 0 0 10px var(--txt-dark);
 }
 
-/* .card-info {
-    transition: all .22s ease-in-out;
-    transition-delay: 100ms;
-    flex: 1;
-    position: absolute;
-    background-color: var(--txt-mid-50);
-    width: 100%;
-    height: 30px;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 2px 0 4px var(--shadow2);
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 5px;
-    font-size: .6em;
-    text-shadow: 1px 1px 3px var(--shadow2);
-    overflow: hidden;
-} */
-
-
-/* .card-info #rating {
-    margin-bottom: 1em;
-}
-.card-info:hover #rating {
-    transition: var(--slow-trans);
-    margin-bottom: 0;
-}
-
-.card-placeholder:hover .card-info {
-    transition: var(--slow-trans);
-    transition-delay: 150ms;
-    height: 100% !important;
-    border-radius: 15px;
-}
-
-.card-info.open {
-    transition: var(--slow-trans);
-    transition-delay: 200ms;
-    height: 100% !important;
-    border-radius: 15px;
-}
-
-.open div {
-    outline: 1px solid rgb(255, 255, 255);
-}
-
-.quickview {
-    flex: .5;
-    display: flex;
-}
-.quickview > #rating {
-    flex: 1;
-}
-
-.info { 
-    flex: 2;
-}
-
-#card-remove {
-    justify-content: flex-end;
-} */
-
+/* CARD INFO */
 
 .card-info {
     transition: all .22s ease-in-out;
@@ -509,15 +448,12 @@ body.light {
     height: 100% !important;
     border-radius: 15px;
 }
-/* .card-info div {
-    outline: 1px solid white;
-} */
 
 .quick-view {
     flex: .15;
     display: flex;
     justify-content: space-between;
-    margin-top: 0px;
+    margin-bottom: 5px;
 }
 #status {
     display: flex;
@@ -556,10 +492,21 @@ body.light {
     align-items: center;
 }
 
+.info-btn:hover {
+    transition: var(--fast-trans);
+    color: rgba(219, 207, 197, 0.65);
+    scale: 100% !important;
+}
+
+#expand-info {
+    grid-area: 6 / 1;
+    justify-self: flex-start;
+    scale: 80%;
+}
 #card-remove {
     grid-area: 6 / 10;
-    align-self: flex-end;
     justify-self: flex-end;
+    scale: 90%;
 }
 
 /* FOOTER */
