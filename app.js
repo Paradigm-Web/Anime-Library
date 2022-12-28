@@ -106,6 +106,30 @@ add_cards.forEach((c) => {
 });
 
 
+/**
+ * CARD INFO HANDLERS
+ */
+
+function updateStatus() {
+    let status_ = document.querySelector('#status > p');
+    let status_txt = status_.textContent.split('/');
+    let current_ep = parseInt(status_txt[0]); 
+    let ep_count = status_txt[1];
+    current_ep++;
+    if (current_ep == parseInt(ep_count)) {
+        alert('Content completed!');
+        current_ep = 0;
+    }
+    status_.textContent = current_ep + '/' + ep_count;
+}
+
+const increase_status = document.querySelector('#status i');
+increase_status.addEventListener('click', () => {
+    updateStatus();
+})
+
+
+
 
 // const s_wrapper = document.querySelector('.settings-wrapper');
 // // const setting_caret = document.querySelector('.settingcaret')
