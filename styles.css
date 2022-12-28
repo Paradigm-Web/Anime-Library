@@ -56,7 +56,7 @@ body.dark {
     --txt-light: #ff9e5e;
     --txt-mid: rgb(224, 123, 35);
     --txt-mid-50: rgba(224, 123, 35, 0.5);
-    --txt-mid-80: rgba(224, 123, 35, 0.8);
+    --txt-mid-90: rgba(224, 123, 35, 0.9);
     --txt-dark: rgb(179, 91, 29);
     --txt-opac-1: rgba(228, 204, 172, 0.7);
     --txt-opac-2: rgba(233, 208, 176, 0.5);
@@ -397,6 +397,18 @@ body.light {
     scale: 106%;
 }
 
+.card-img {
+    height: 100%;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 .add-card {
     justify-content: center;
     align-items: center;
@@ -418,6 +430,7 @@ body.light {
 /* CARD INFO */
 
 .card-info {
+    position: absolute;
     transition: all .22s ease-in-out;
     transition-delay: 100ms;
     display: flex;
@@ -434,13 +447,14 @@ body.light {
     font-size: .7em;
     padding: 3px 8px;
     cursor: pointer;
+    z-index: 1;
 }
 .card-placeholder:hover .card-info {
     transition: all .22s ease-out;
     transition-delay: 1000ms;
     height: 100% !important;
     border-radius: 15px;
-    background-color: var(--txt-mid-80);
+    background-color: var(--txt-mid-90);
 }
 .card-info.open {
     transition: var(--slow-trans);
@@ -495,18 +509,27 @@ body.light {
 .info-btn:hover {
     transition: var(--fast-trans);
     color: rgba(219, 207, 197, 0.65);
-    scale: 100% !important;
 }
 
 #expand-info {
     grid-area: 6 / 1;
     justify-self: flex-start;
-    scale: 80%;
+    opacity: 70%;
+    scale: 100%;
+}
+#expand-info:hover {
+    opacity: 90%;
+    scale: 120%;
 }
 #card-remove {
     grid-area: 6 / 10;
     justify-self: flex-end;
-    scale: 90%;
+    opacity: 70%;
+    scale: 110%;
+}
+#card-remove:hover {
+    opacity: 90%;
+    scale: 130% !important;
 }
 
 /* FOOTER */
@@ -543,7 +566,7 @@ body.light {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -560,7 +583,7 @@ body.light {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    z-index: 2;
+    z-index: 3;
 }
 
 .close {
