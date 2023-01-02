@@ -164,6 +164,9 @@ increase_status.addEventListener('click', () => {
     updateStatus();
 });
 
+/**
+ * Card Modal Info Handlers
+ */
 
 const card_wrapper = document.querySelector('#card-wrapper')
 const card_modal = document.querySelector('#card-modal');
@@ -173,8 +176,13 @@ expand_info.addEventListener('click', () => {
 const close_card = document.querySelector('#close-card');
 close_card.addEventListener('click', () => {
     toggleModal(card_modal, card_wrapper);
-})
+});
 
+const fav_btn = document.querySelector('#favorite-btn');
+fav_btn.addEventListener('click', () => {
+    fav_btn.classList.toggle('active');
+    fav_btn.classList.toggle('inactive');
+});
 
 
 
@@ -195,17 +203,17 @@ close_card.addEventListener('click', () => {
  * DATABASE HANDLERS
  */
 
-const API_URL = 'https://api.myanimelist.net/v2/oauth2/token';
-const API_KEY = 'YOUR_API_KEY';
+// const API_URL = 'https://api.myanimelist.net/v2/oauth2/token';
+// const API_KEY = 'YOUR_API_KEY';
 
-fetch(API_URL, {
-  method: 'POST',
-  headers: {
-    'Authorization': `Basic ${API_KEY}`,
-    'Content-Type': 'application/x-www-form-urlencoded'
-  },
-  body: 'grant_type=client_credentials'
-})
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error(error))
+// fetch(API_URL, {
+//   method: 'POST',
+//   headers: {
+//     'Authorization': `Basic ${API_KEY}`,
+//     'Content-Type': 'application/x-www-form-urlencoded'
+//   },
+//   body: 'grant_type=client_credentials'
+// })
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error))

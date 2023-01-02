@@ -714,6 +714,19 @@ body.light {
     cursor: pointer;
     opacity: 100%;
 }
+#favorite-btn {
+    animation: bounce .15s var(--mid-curve) both;
+    position: absolute;
+    left: 11px;
+    top: 9px;
+    scale: 160%;
+    opacity: 80%;
+    cursor: pointer;
+}
+#favorite-btn.active {
+    animation: bounce2 .15s var(--mid-curve) both;
+    color: red;
+}
 #card-modal-header-info {
     margin-bottom: .7em;
     margin-left: .75em;
@@ -759,6 +772,17 @@ body.light {
     0% { transform: rotate(4.5deg); }
     50% { transform: rotate(-4.5deg); }
     100% { transform: rotate(4.5deg); }
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(.8); }
+    100% { transform: scale(1); }
+}
+@keyframes bounce2 {
+    0% { transform: scale(1); }
+    50% { transform: scale(.8); }
+    100% { transform: scale(1); }
 }
 
 @keyframes click {
