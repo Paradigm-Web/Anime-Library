@@ -41,13 +41,13 @@
 
             <div id="theme" class="head-tool">
                 <!-- <i class="fa-solid fa-moon dark"></i> -->
-                <img class="dark" src="src/weather-night.png" alt="" title="Theme">
+                <img class="dark" src="src/weather-night.png" alt="" title="Theme" draggable="false">
             </div>
             <div id="notifs" title="Notifications" class="head-tool">
                 <i class="fa-solid fa-bell"></i>
             </div>
             <div id="profile" title="Profile" class="head-tool">
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user"></i><i id="prof-drop" class="fa fa-caret-down"></i>
             </div>
         </div>
       </header>
@@ -83,18 +83,42 @@
                   <div class="card-img">
                     <img src="card_img/naruto.jpg" alt="">
                   </div>
-                  <div class="card-info">
-                    <div class="quick-view">
-                      <div id="status" title="Episode Status"><p>3/720</p>
-                        <i id="increase-status" title="Next Episode" class="fa-regular fa-plus"></i>
-                      </div>
-                      <div id="rating" title="Rating"><p>8.6<i class="info-btn fa-solid fa-star"></i></p>
-                      </div>
+                  <div id="expand-info" title="Expand" class="info-btn"><i class="fa-solid fa-ellipsis"></i></div>
+                  <div class="constant-info info">
+                    <div id="status" title="Episode Status"><p>3/720</p>
+                      <i id="increase-status" title="Next Episode" class="info-btn fa-regular fa-plus"></i>
                     </div>
-                    <div class="info">
-                      <div id="expand-info" class="info-btn" title="Expand"><i class="fa-solid fa-ellipsis"></i></i></div>
-                      <div id="card-remove" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
+                    <div id="rating" title="Rating"><p>9.1<i class="info-btn fa-solid fa-star"></i></p>
                     </div>
+                  </div>
+                  <div class="card-info info">
+                    <div id="remove-card" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
+                    <div class="title">Naruto</div>
+                    <div class="release">17/02/2002</div>
+                    <div class="author">Mitksd Dikdio</div>
+
+                  </div>
+                </div>
+
+
+                <div class="card-placeholder" data="current">
+                  <div class="card-img">
+                    <img src="card_img/bluelock.jpg" alt="">
+                  </div>
+                  <div id="expand-info" title="Expand" class="info-btn"><i class="fa-solid fa-ellipsis"></i></div>
+                  <div class="constant-info info">
+                    <div id="status" title="Episode Status"><p>12/24</p>
+                      <i id="increase-status" title="Next Episode" class="info-btn fa-regular fa-plus"></i>
+                    </div>
+                    <div id="rating" title="Rating"><p>8.7<i class="info-btn fa-solid fa-star"></i></p>
+                    </div>
+                  </div>
+                  <div class="card-info info">
+                    <div id="remove-card" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
+                    <div class="title">Blue Lock</div>
+                    <div class="release">17/02/2002</div>
+                    <div class="author">Mitksd Dikdio</div>
+
                   </div>
                 </div>
 
@@ -109,6 +133,7 @@
                 <div class="card-img">
                   <img src="card_img/hunter-x-hunter.jpg" alt="">
                 </div>
+                <div id="expand-info" title="Expand" class="info-btn"><i class="fa-solid fa-ellipsis"></i></div>
                 <div class="card-info">
                   <div class="quick-view">
                     <div id="status" title="Episode Status"><p>194</p>
@@ -118,7 +143,6 @@
                     </div>
                   </div>
                   <div class="info">
-                    <div id="expand-info" class="info-btn" title="Expand"><i class="fa-solid fa-ellipsis"></i></i></div>
                     <div id="card-remove" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
                   </div>
                 </div>
@@ -160,28 +184,42 @@
       <div class="modal-wrapper" id="add-wrapper">
         <div class="modal" id="add-card-modal">
           ADD TO LIST
-          <div id="close-add" class="close control"><i class="fa-solid fa-xmark"></i></i></div>
+          <div id="close-add" class="close control" title="Close"><i class="fa-solid fa-xmark"></i></i></div>
         </div>
       </div>
 
       <div class="modal-wrapper" id="upload-wrapper">
         <div class="modal" id="upload-list-modal">
           UPLOAD LIST
-          <div id="close-upload" class="close control"><i class="fa-solid fa-xmark"></i></i></div>
+          <div id="close-upload" class="close control" title="Close"><i class="fa-solid fa-xmark"></i></i></div>
         </div>
       </div>
 
       <div class="modal-wrapper" id="share-wrapper">
         <div class="modal" id="share-list-modal">
           SHARE LIST
-          <div id="close-share" class="close control"><i class="fa-solid fa-xmark"></i></div>
+          <div id="close-share" class="close control" title="Close"><i class="fa-solid fa-xmark"></i></div>
         </div>
       </div>
 
       <div class="modal-wrapper" id="card-wrapper">
         <div class="modal" id="card-modal">
-          CARD INFO 
-          <div id="close-card" class="close control"><i class="fa-solid fa-xmark"></i></div>
+          <div id="card-modal-img">
+            <div class="card-modal-header">
+              <div id="card-modal-favorite" class="info-btn" title="Add to Favorites"><i class="fa-solid fa-heart"></i></div>
+              <div id="close-card" class="close" title="Close"><i class="fa-solid fa-xmark"></i></div>
+              <div id="card-modal-header-info">
+                <div id="card-modal-title">Naruto: Shippuden</div>
+                <div id="card-modal-rating" class="header-rating">You: 9.1<i class="info-btn fa-solid fa-star"></i></div>
+                <div id="card-modal-avg-rating" class="header-rating">Avg: 8.6<i class="info-btn fa-solid fa-star"></i></div> 
+              </div>
+              
+            </div>
+          </div>
+          
+          <div class="card-modal-info">
+
+          </div>
         </div>
       </div>
       

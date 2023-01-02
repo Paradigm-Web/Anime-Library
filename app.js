@@ -110,6 +110,42 @@ add_cards.forEach((c) => {
  * CARD INFO HANDLERS
  */
 
+const card = document.querySelector('.card-placeholder');
+const constant_info = card.querySelector('.constant-info');
+const card_info = card.querySelector('.card-info');
+const expand_info = card.querySelector('#expand-info');
+let isOpen = false;
+let isHover = false;
+
+function openInfo() {
+    card_info.classList.add('open');
+    expand_info.classList.add('open');
+    isOpen = true;
+}
+function closeInfo() {
+    card_info.classList.remove('open');
+    expand_info.classList.remove('open');
+    isOpen = false;
+}
+
+constant_info.addEventListener('mouseenter', (e) => {
+    isHover = true;
+    if (isOpen) return;
+    setTimeout(() => {
+        if (!isHover) return;
+        openInfo();
+    }, 300);
+});
+constant_info.addEventListener('mouseleave', (e) => {
+    if (isOpen) return;
+    isHover = false;
+});
+card.addEventListener('mouseleave', (e) => {
+    if (!isOpen || e.target !== card) return;
+    closeInfo();
+    isOpen = false;
+});
+
 function updateStatus() {
     let status_ = document.querySelector('#status > p');
     let status_txt = status_.textContent.split('/');
@@ -131,7 +167,6 @@ increase_status.addEventListener('click', () => {
 
 const card_wrapper = document.querySelector('#card-wrapper')
 const card_modal = document.querySelector('#card-modal');
-const expand_info = document.querySelector('#expand-info');
 expand_info.addEventListener('click', () => {
     toggleModal(card_modal, card_wrapper);
 });
@@ -154,3 +189,23 @@ close_card.addEventListener('click', () => {
 // settings_btn.addEventListener('click', () => {
 //     openSettings();
 // });
+
+
+/**
+ * DATABASE HANDLERS
+ */
+
+const API_URL = 'https://api.myanimelist.net/v2/oauth2/token';
+const API_KEY = 'YOUR_API_KEY';
+
+fetch(API_URL, {
+  method: 'POST',
+  headers: {
+    'Authorization': `Basic ${API_KEY}`,
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  body: 'grant_type=client_credentials'
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error))
