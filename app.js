@@ -110,40 +110,46 @@ add_cards.forEach((c) => {
  * CARD INFO HANDLERS
  */
 
-const card = document.querySelector('.card-placeholder');
-const constant_info = card.querySelector('.constant-info');
-const card_info = card.querySelector('.card-info');
-const expand_info = card.querySelector('#expand-info');
+// const card = document.querySelectorAll('.card-wrapper');
+const card = document.querySelector('#hovtest1');
+const card_img = card.querySelector('#hovtest2');
+const card_info = card.querySelector('.hover-info');
+const expand_info = card.querySelector('#hovertest-expand-info');
 let isOpen = false;
 let isHover = false;
 
 function openInfo() {
-    card_info.classList.add('open');
-    expand_info.classList.add('open');
+    card.classList.add('hovered');
+    card_info.classList.add('hovered');
+    card_img.classList.add('hovered');
+    // expand_info.classList.add('hovered');
     isOpen = true;
 }
 function closeInfo() {
-    card_info.classList.remove('open');
-    expand_info.classList.remove('open');
+    card.classList.remove('hovered');
+    card_info.classList.remove('hovered');
+    // expand_info.classList.add('hovered');
+    card_img.classList.remove('hovered');
     isOpen = false;
 }
 
-constant_info.addEventListener('mouseenter', (e) => {
-    isHover = true;
-    if (isOpen) return;
-    setTimeout(() => {
-        if (!isHover) return;
-        openInfo();
-    }, 300);
-});
-constant_info.addEventListener('mouseleave', (e) => {
-    if (isOpen) return;
-    isHover = false;
+// constant_info.addEventListener('mouseenter', (e) => {
+//     isHover = true;
+//     if (isOpen) return;
+//     setTimeout(() => {
+//         if (!isHover) return;
+//         openInfo();
+//     }, 300);
+// });
+// constant_info.addEventListener('mouseleave', (e) => {
+//     if (isOpen) return;
+//     isHover = false;
+// });
+card.addEventListener('mouseenter', (e) => {
+    openInfo();
 });
 card.addEventListener('mouseleave', (e) => {
-    if (!isOpen || e.target !== card) return;
     closeInfo();
-    isOpen = false;
 });
 
 function updateStatus() {
@@ -168,20 +174,19 @@ increase_status.addEventListener('click', () => {
  * Card Modal Info Handlers
  */
 
-const card_wrapper = document.querySelector('#card-wrapper')
+const card_m_wrapper = document.querySelector('#card-modal-wrapper')
 const card_modal = document.querySelector('#card-modal');
 expand_info.addEventListener('click', () => {
-    toggleModal(card_modal, card_wrapper);
+    toggleModal(card_modal, card_m_wrapper);
 });
 const close_card = document.querySelector('#close-card');
 close_card.addEventListener('click', () => {
-    toggleModal(card_modal, card_wrapper);
+    toggleModal(card_modal, card_m_wrapper);
 });
 
 const fav_btn = document.querySelector('#favorite-btn');
 fav_btn.addEventListener('click', () => {
     fav_btn.classList.toggle('active');
-    fav_btn.classList.toggle('inactive');
 });
 
 
@@ -197,6 +202,7 @@ fav_btn.addEventListener('click', () => {
 // settings_btn.addEventListener('click', () => {
 //     openSettings();
 // });
+
 
 
 /**

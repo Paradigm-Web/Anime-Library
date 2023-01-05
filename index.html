@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Mediaverse</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="src/moon_icon.png" />
+  />
+  <link rel="shortcut icon" href="src/moon_icon.png" />
     <script
       src="https://kit.fontawesome.com/4c536a6bd5.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://kit.fontawesome.com/5b9794d826.js" crossorigin="anonymous"></script>
-    <script src="app.js" defer></script>
-  </head>
-  <body class="dark">
-    <header class="header">
-        <div class="container">
-            <a href="#"><img class="logo" src="src/moon_icon_small.png" alt=""></a>
+  <script src="https://kit.fontawesome.com/5b9794d826.js" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
+  <title>The Mediaverse</title>
+</head>
+<body class="dark">
+  <header class="header">
+    <div class="container">
+      <a href="#"><img class="logo" src="src/moon_icon_small.png" alt=""></a>
             <h1>Mediaverse</h1>
             <nav>
                 <li class="nav-item" id="home">Home</li>
@@ -40,7 +41,6 @@
             </div> 
 
             <div id="theme" class="head-tool">
-                <!-- <i class="fa-solid fa-moon dark"></i> -->
                 <img class="dark" src="src/weather-night.png" alt="" title="Theme" draggable="false">
             </div>
             <div id="notifs" title="Notifications" class="head-tool">
@@ -49,179 +49,136 @@
             <div id="profile" title="Profile" class="head-tool">
                 <i class="fa-solid fa-user"></i><i id="prof-drop" class="fa fa-caret-down"></i>
             </div>
-        </div>
-      </header>
+    </div>
+  </header>
 
-      <main class="main container">
+  <main class="main container">
 
-        <div class="controls container">
+    <div class="controls container">
 
-          <nav>
-              <div id="add" class="control"><i class="fa-solid fa-circle-plus" title="Add"></i></div>
-              <div id="upload" class="control"><i class="fa-solid fa-upload" title="Upload"></i></div>
-              <div id="share" class="control"><i class="fa-solid fa-share" title="Share"></i></div>
-          </nav>
+      <nav>
+          <div id="add" class="control"><i class="fa-solid fa-circle-plus" title="Add"></i></div>
+          <div id="upload" class="control"><i class="fa-solid fa-upload" title="Upload"></i></div>
+          <div id="share" class="control"><i class="fa-solid fa-share" title="Share"></i></div>
+      </nav>
 
-          <div class="settings-wrapper">
-              <div id="list-type" class="setting" title="Content Menu"><i class="fa-solid fa-bolt"></i>&nbspAnime</i></div>
-              <div id="view" class="setting" title="View Menu"><i class="fa-solid fa-list"></i>&nbspView</div>
-              <div id="sort" class="setting" title="Sort Menu"><i class="fa-solid fa-sort"></i>&nbspSort</div>
-              <div id="filters" class="setting" title="Filters Menu"><i class="fa-solid fa-arrow-down-wide-short"></i>Filters</div>
-              
-          </div>
-          <div id="settings" class="control">
-              <i class="sbtn fa-solid fa-gear" title="Settings"></i>
-          </div>
+      <div class="settings-wrapper">
+          <div id="list-type" class="setting" title="Content Menu"><i class="fa-solid fa-bolt"></i>&nbspAnime</i></div>
+          <div id="view" class="setting" title="View Menu"><i class="fa-solid fa-list"></i>&nbspView</div>
+          <div id="sort" class="setting" title="Sort Menu"><i class="fa-solid fa-sort"></i>&nbspSort</div>
+          <div id="filters" class="setting" title="Filters Menu"><i class="fa-solid fa-arrow-down-wide-short"></i>Filters</div>
+          
       </div>
-
-      <div class="content container">
-        <div id="current" class="content-area">
-            <div class="field-title">Currently Watching</div>
-            <div class="cards-wrapper">
-
-                <div class="card-placeholder" data="current">
-                  <div class="card-img">
-                    <img src="card_img/naruto.jpg" alt="">
-                  </div>
-                  <div id="expand-info" title="Expand" class="info-btn"><i class="fa-solid fa-ellipsis"></i></div>
-                  <div class="constant-info info">
-                    <div id="status" title="Episode Status"><p>3/720</p>
-                      <i id="increase-status" title="Next Episode" class="info-btn fa-regular fa-plus"></i>
-                    </div>
-                    <div id="rating" title="Rating"><p>9.1<i class="info-btn fa-solid fa-star"></i></p>
-                    </div>
-                  </div>
-                  <div class="card-info info">
-                    <div id="remove-card" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
-                    <div class="title">Naruto</div>
-                    <div class="release">17/02/2002</div>
-                    <div class="author">Mitksd Dikdio</div>
-
-                  </div>
-                </div>
-
-
-                <div class="card-placeholder" data="current">
-                  <div class="card-img">
-                    <img src="card_img/bluelock.jpg" alt="">
-                  </div>
-                  <div id="expand-info" title="Expand" class="info-btn"><i class="fa-solid fa-ellipsis"></i></div>
-                  <div class="constant-info info">
-                    <div id="status" title="Episode Status"><p>12/24</p>
-                      <i id="increase-status" title="Next Episode" class="info-btn fa-regular fa-plus"></i>
-                    </div>
-                    <div id="rating" title="Rating"><p>8.7<i class="info-btn fa-solid fa-star"></i></p>
-                    </div>
-                  </div>
-                  <div class="card-info info">
-                    <div id="remove-card" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
-                    <div class="title">Blue Lock</div>
-                    <div class="release">17/02/2002</div>
-                    <div class="author">Mitksd Dikdio</div>
-
-                  </div>
-                </div>
-
-                <div class="card-placeholder add-card" data="current"><i class="fa-solid fa-plus"></i></div>
-            </div>
-        </div>
-        <div id="completed" class="content-area">
-            <div class="field-title">Completed</div>
-            <div class="cards-wrapper">
-
-              <div class="card-placeholder" data="completed">
-                <div class="card-img">
-                  <img src="card_img/hunter-x-hunter.jpg" alt="">
-                </div>
-                <div id="expand-info" title="Expand" class="info-btn"><i class="fa-solid fa-ellipsis"></i></div>
-                <div class="card-info">
-                  <div class="quick-view">
-                    <div id="status" title="Episode Status"><p>194</p>
-                      <i id="increase-status" title="Next Episode" class="fa-regular fa-plus"></i>
-                    </div>
-                    <div id="rating" title="Rating"><p>9.2<i class="info-btn fa-solid fa-star"></i></p>
-                    </div>
-                  </div>
-                  <div class="info">
-                    <div id="card-remove" class="info-btn" title="Remove"><i class="fa-solid fa-xmark"></i></div>
-                  </div>
-                </div>
-              </div>
-
-                <div class="card-placeholder add-card" data="completed"><i class="fa-solid fa-plus"></i></div>
-            </div>
-        </div>
-        <div id="plan" class="content-area">
-          <div class="field-title">Plan To Watch</div>
-          <div class="cards-wrapper">
-            <div class="card-placeholder add-card" data="plan"><i class="fa-solid fa-plus"></i></div>
-        </div>
+      <div id="settings" class="control">
+          <i class="sbtn fa-solid fa-gear" title="Settings"></i>
       </div>
-        <div id="dropped" class="content-area">
-            <div class="field-title">Dropped</div>
-            <div class="cards-wrapper">
-                <div class="card-placeholder add-card" data="dropped"><i class="fa-solid fa-plus"></i></div>
+  </div>
+
+  <div class="content container">
+
+    <div id="current" class="content-section">
+      <div class="field-title">Currently Watching</div>
+      <div class="cards-section">
+
+        <div class="card-wrapper" data="current">
+          <div class="card-cover" data="first">
+            <div class="card-img">
+              <img class="img-front" src="card_img/naruto.jpg" alt="">
+              <img src="https://i.pinimg.com/originals/76/96/98/769698307761143fa77e3db7dfa8030b.gif" alt="" class="img-back">
             </div>
+            <div title="More Info" class="more-info"><i class="fa-solid fa-ellipsis"></i></div>
+            <div class="card-info"></div>
+          </div>
         </div>
+
+        <div class="card-wrapper" data="current">
+          <div class="card-cover" data="middle">
+            <div class="card-img">
+              <img class="img-front" src="card_img/bluelock.jpg" alt="">
+              <img src="https://64.media.tumblr.com/07f0898cb78f9b46b3216a0ef98ab2b5/6ba8d34f505d8882-c0/s540x810/6571b35313f881587a468648254495d96485a368.gifv" alt="" class="img-back">
+            </div>
+            <div title="More Info" class="more-info"><i class="fa-solid fa-ellipsis"></i></div>
+            <div class="card-info"></div>
+          </div>
+        </div>
+
+        <div class="card-wrapper add-card" data="current"><i class="fa-solid fa-plus"></i></div>
+      </div>
     </div>
 
-      </main>
+    <div id="completed" class="content-section">
+      <div class="field-title">Completed</div>
+      <div class="cards-section">
 
-      <footer class="footer">
-        <p>
-          Copyright ©
-          <script>
-            document.write(new Date().getFullYear())
-          </script>
-          Paradigm-Web
-        </p>
-        <a href="https://github.com/Paradigm-Web" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-      </footer>
-
-      <!-- MODALS -->
-      <div class="modal-wrapper" id="add-wrapper">
-        <div class="modal" id="add-card-modal">
-          ADD TO LIST
-          <div id="close-add" class="close control" title="Close"><i class="fa-solid fa-xmark"></i></i></div>
-        </div>
-      </div>
-
-      <div class="modal-wrapper" id="upload-wrapper">
-        <div class="modal" id="upload-list-modal">
-          UPLOAD LIST
-          <div id="close-upload" class="close control" title="Close"><i class="fa-solid fa-xmark"></i></i></div>
-        </div>
-      </div>
-
-      <div class="modal-wrapper" id="share-wrapper">
-        <div class="modal" id="share-list-modal">
-          SHARE LIST
-          <div id="close-share" class="close control" title="Close"><i class="fa-solid fa-xmark"></i></div>
-        </div>
-      </div>
-
-      <div class="modal-wrapper" id="card-wrapper">
-        <div class="modal" id="card-modal">
-          <div id="card-modal-img">
-            <div class="card-modal-header">
-              <div id="favorite-btn" title="Add to Favorites"><i class="fa-solid fa-heart"></i></div>
-              <div id="close-card" class="close" title="Close"><i class="fa-solid fa-xmark"></i></div>
-              <div id="card-modal-header-info">
-                <div id="card-modal-title">Naruto: Shippuden</div>
-                <div id="card-modal-rating" class="header-rating">You: 9.1<i class="info-btn fa-solid fa-star"></i></div>
-                <div id="card-modal-avg-rating" class="header-rating">Avg: 8.6<i class="info-btn fa-solid fa-star"></i></div> 
-              </div>
-              
+        <div class="card-wrapper" data="current">
+          <div class="card-cover" data="first">
+            <div class="card-img">
+              <img class="img-front" src="card_img/jjk.jpg" alt="Jujutsu Image">
+              <img src="https://media.tenor.com/nDw7rJeHdaMAAAAd/jujutsu-kaisen.gif" alt="Jujutsu GIF" class="img-back">
             </div>
+            <div title="More Info" class="more-info"><i class="fa-solid fa-ellipsis"></i></div>
+            <div class="card-info"></div>
+          </div>
+        </div>
+
+        <div class="card-wrapper add-card" data="completed"><i class="fa-solid fa-plus"></i></div>
+      </div>
+    </div>
+
+    <div id="planned" class="content-section">
+      <div class="field-title">Plan to Watch</div>
+      <div class="cards-section">
+        <div class="card-wrapper add-card" data="planned"><i class="fa-solid fa-plus"></i></div>
+      </div>
+    </div>
+
+    <div id="dropped" class="content-section">
+      <div class="field-title">Dropped</div>
+      <div class="cards-section">
+        <div class="card-wrapper add-card" data="dropped"><i class="fa-solid fa-plus"></i></div>
+      </div>
+    </div>
+
+  </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear())
+      </script>
+      Paradigm-Web
+    </p>
+    <a href="https://github.com/Paradigm-Web" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+  </footer>
+
+  <!-- MODALS -->
+  <div class="modal-wrapper">
+    <div class="modal" id="card-modal">
+      <div id="card-modal-img">
+        <div class="card-modal-header">
+          <div id="favorite-btn" title="Add to Favorites"><i class="fa-solid fa-heart"></i></div>
+          <div id="close-card" class="close" title="Close"><i class="fa-solid fa-xmark"></i></div>
+          <div id="card-modal-header-info">
+            <div id="card-modal-title">Naruto: Shippuden</div>
+            <div id="card-modal-rating" class="header-rating">You: 9.1<i class="info-btn fa-solid fa-star"></i></div>
+            <div id="card-modal-avg-rating" class="header-rating">Avg: 8.6<i class="info-btn fa-solid fa-star"></i></div> 
           </div>
           
-          <div class="card-modal-info">
-
-          </div>
         </div>
       </div>
       
-      <div class="overlay"></div>
-  </body>
+      <div class="card-modal-info">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+
+</body>
+</html>
