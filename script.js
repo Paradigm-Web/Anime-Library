@@ -97,3 +97,31 @@ list_sections.forEach((s) => {
         });
     });
 });
+
+
+/**
+ * MODAL HANDLERS
+ */
+const overlay = document.querySelector('.overlay');
+
+function toggleModal(modal, wrapper) {
+    wrapper.classList.toggle('active');
+    modal.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+const card_m_wrapper = document.querySelector('.modal-wrapper')
+const card_modal = document.querySelector('#card-modal');
+const more_info = document.querySelector('.more-info');
+more_info.addEventListener('click', () => {
+    toggleModal(card_modal, card_m_wrapper);
+});
+const close_card = document.querySelector('#close-card');
+close_card.addEventListener('click', () => {
+    toggleModal(card_modal, card_m_wrapper);
+});
+
+const fav_btn = document.querySelector('#favorite-btn');
+fav_btn.addEventListener('click', () => {
+    fav_btn.classList.toggle('active');
+});
