@@ -42,18 +42,29 @@ settings_btn.addEventListener('click', () => {
  * MEDIA CARD HANDLERS
  */
 
-const card = document.querySelector('.card-cover');
-const card_img = card.querySelector('.card-img');
-const img1 = card_img.children[0];
-const img2 = card_img.children[1];
-const more_btn = card.querySelector('.more-info');
-let isActive = false;
-let isHovered = false;
-
-card_img.addEventListener('mouseenter', () => {
-    isHovered = true;
-    if (isActive) return;
-    setTimeout(() => {
+const list_sections = document.querySelectorAll('.content-section');
+list_sections.forEach((s) => {
+    const cards = s.querySelectorAll('.card-cover');
+    const add_card = s.querySelector('.add-card');
+    add_card.setAttribute('title', `Add to ${s.id} list`);
+    try {
+        cards[0].style.transformOrigin = '0 50%';
+    } catch {
+        console.log(`${s.id} section has no content yet`);
+    }
+    
+    cards.forEach((card) => {
+        const card_img = card.querySelector('.card-img');
+        const img1 = card_img.children[0];
+        const img2 = card_img.children[1];
+        const more_btn = card.querySelector('.more-info');
+        let isActive = false;
+        let isHovered = false;
+    
+        card_img.addEventListener('mouseenter', () => {
+        isHovered = true;
+        if (isActive) return;
+        setTimeout(() => {
         if (!isHovered) return;
         card.classList.add('expand');
         isActive = true;
@@ -67,20 +78,22 @@ card_img.addEventListener('mouseenter', () => {
                 img1.style.opacity = '0%';
             }, 600);
         }, 75);
-    }, 500);
-});
-card_img.addEventListener('mouseleave', () => {
-    isHovered = false;
-});
-
-card.addEventListener('mouseleave', () => {
-    isHovered = false;
-    if (!isActive) return;
-    card.classList.remove('expand');
-    isActive = false;
-    setTimeout(() => {
+        }, 500);
+        });
+        card_img.addEventListener('mouseleave', () => {
+        isHovered = false;
+        });
+    
+        card.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (!isActive) return;
+        card.classList.remove('expand');
+        isActive = false;
+        setTimeout(() => {
         img1.style.opacity = '100%';
         img2.classList.remove('fade-in');
         img2.classList.add('fade-out');
-    }, 1);
+        }, 1);
+        });
+    });
 });
