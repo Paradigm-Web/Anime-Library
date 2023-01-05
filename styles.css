@@ -7,7 +7,7 @@
     --mid-trans: all 0.2s ease-out;
     --fast-trans: all 0.1s ease-out;
     --slow-raw: all .275s;
-    --mid-raw: all .175s;
+    --mid-raw: all .2s;
     --fast-raw: all .125s;
 
     --card-border: 7px;
@@ -118,6 +118,24 @@ body.light {
 /*
 * KEYFRAMES
 */
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+@keyframes fade_out {
+    from {
+        opacity: 100%;
+    }
+    to {
+        opacity: 0;
+    }
+}
 
 @keyframes modal_in {
     0% { transform: scale(0); opacity: 0%;}
@@ -528,27 +546,47 @@ body.light {
 
 .card-cover.expand {
     transition: var(--slow-raw);
-    transform: scale(1.4);
+    transform: scale(1.45);
     transform-origin: 0 50%;
-    background-color: var(--browny);
     z-index: 2;
     cursor: pointer;
 }
 
-.card-cover img {
+.card-cover .card-img {
+    position: relative;
     transition: var(--mid-raw);
     z-index: 2;
     cursor: pointer;
     flex: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     border-radius: var(--card-border);
     overflow: hidden;
     box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.253);
 }
 
-.card-cover.expand img {
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.img-front {
+    opacity: 100%;
+}
+.fade-out {
+    animation: fade_out .15s ease both;
+}
+
+.img-back {
+    opacity: 0;
+}
+.fade-in {
+    animation: fade_in .8s ease both;
+}
+
+.card-cover.expand .card-img {
     transition: var(--slow-raw);
     flex: .8;
     border-radius: var(--card-border) var(--card-border) 0 0;
@@ -558,7 +596,7 @@ body.light {
     transition: var(--mid-trans);
     display: flex;
     align-items: center;
-    justify-self: flex-start;
+    justify-self: center;
     cursor: pointer;
     position: absolute;
     top: 7px;
@@ -579,17 +617,20 @@ body.light {
     opacity: 100%;
 }
 .card-cover.expand .more-info {
-    top: 4px;
-    left: 4px;
-    scale: 80%;
+    /* top: 4px;
+    left: 4px; */
+    scale: 75%;
 }
 
 .card-info {
-    transition: z-index 5s;
+    transition: all .2s;
     flex: .5;
     opacity: 0;
+    background-color: var(--browny);
+    border-radius: 0 0 var(--card-border) var(--card-border);
 }
 .card-cover.expand .card-info {
+    transition: all .4s;
     opacity: 100%;
     box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.253);
 }

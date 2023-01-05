@@ -43,7 +43,9 @@ settings_btn.addEventListener('click', () => {
  */
 
 const card = document.querySelector('.card-cover');
-const card_img = card.querySelector('.card-cover img');
+const card_img = card.querySelector('.card-img');
+const img1 = card_img.children[0];
+const img2 = card_img.children[1];
 const more_btn = card.querySelector('.more-info');
 let isActive = false;
 let isHovered = false;
@@ -56,7 +58,14 @@ card_img.addEventListener('mouseenter', () => {
         card.classList.add('expand');
         isActive = true;
         setTimeout(() => {
-            card_img.src = "https://media.giphy.com/media/3o6UBpHgaXFDNAuttm/giphy.gif";
+            if (!isHovered) return;
+            img2.classList.add('fade-in');
+            img2.classList.remove('fade-out');
+            setTimeout(() => {
+                if (!isActive) return;
+                if (!isHovered) return;
+                img1.style.opacity = '0%';
+            }, 600);
         }, 75);
     }, 500);
 });
@@ -70,6 +79,8 @@ card.addEventListener('mouseleave', () => {
     card.classList.remove('expand');
     isActive = false;
     setTimeout(() => {
-        card_img.src = "card_img/naruto.jpg";
-    }, 100);
+        img1.style.opacity = '100%';
+        img2.classList.remove('fade-in');
+        img2.classList.add('fade-out');
+    }, 1);
 });
