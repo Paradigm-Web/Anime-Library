@@ -63,6 +63,7 @@ list_sections.forEach((s) => {
     
         card_img.addEventListener('mouseenter', () => {
         isHovered = true;
+        // more_btn.style.opacity = '100%';
         if (isActive) return;
         setTimeout(() => {
         if (!isHovered) return;
@@ -80,8 +81,10 @@ list_sections.forEach((s) => {
         }, 75);
         }, 500);
         });
-        card_img.addEventListener('mouseleave', () => {
+        card_img.addEventListener('mouseleave', (e) => {
         isHovered = false;
+        // if (e.target == card_img) more_btn;
+        // more_btn.style.opacity = '0';
         });
     
         card.addEventListener('mouseleave', () => {
