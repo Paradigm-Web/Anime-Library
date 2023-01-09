@@ -18,6 +18,7 @@
     --gray: rgba(85, 85, 85, 0.253);
     --white: #fffbfb;
     --almost-white: rgb(221, 221, 221);
+    --less-white: rgb(212, 211, 211);
 
     --mid-curve: cubic-bezier(0, 0, 0.39, 0.97);
     --slow-end: cubic-bezier(0.16, 0.89, 0.28, 1.02);
@@ -76,6 +77,7 @@ body {
 */
 
 body.dark {
+    --main-lightest: rgb(46, 46, 46);
     --main-light: rgb(42, 42, 42);
     --main-medium: rgb(36, 36, 36);
     --main-mid: rgb(30, 30, 30);
@@ -607,9 +609,7 @@ body.light {
     justify-self: center;
     cursor: pointer;
     position: absolute;
-    top: 7px;
-    left: 7px;
-    scale: 90%;
+    scale: 70%;
     z-index: 2;
     border-radius: 5px;
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.253);
@@ -626,9 +626,9 @@ body.light {
     opacity: 100%;
 }
 .card-cover.expand .more-info {
-    top: 4px;
-    left: 4px;
-    scale: 70%;
+    top: 0;
+    left: 0;
+    scale: 60%;
 }
 
 .card-title {
@@ -645,6 +645,24 @@ body.light {
 }
 .card-title.shown {
     transition: var(--mid-trans);
+    opacity: 80%;
+}
+
+.pause-gif {
+    position: absolute;
+    z-index: 2;
+    right: 4px;
+    top: 0;
+    scale: 70%;
+    color: var(--txt-light);
+    cursor: pointer;
+    opacity: 0;
+}
+.card-cover.expand .pause-gif {
+    transition: var(--mid-trans);
+    opacity: 60%;
+}
+.card-cover.expand .pause-gif:hover {
     opacity: 80%;
 }
 
@@ -682,9 +700,11 @@ body.light {
     display: flex;
     justify-content: space-between;
     font-size: .7em;
+    font-weight: 400;
     align-items: center;
     opacity: 95%;
     color: var(--txt-mid);
+    padding: 4px 2px;
 }
 
 #eps {
@@ -693,13 +713,14 @@ body.light {
     align-items: center;
     gap: .2em;
     cursor: pointer;
+    text-align: center;
 }
-#eps i {
-    transition: var(--fast-trans);
-    opacity: 0;
+#eps span {
+    transition: var(--mid-trans);
+    scale: 0;
 }
-#eps:hover i {
-    opacity: 100%;
+#eps:hover span {
+    scale: 110%;
 }
 
 #stars {
@@ -718,23 +739,31 @@ body.light {
     font-size: .55em;
     align-items: center;
     justify-content: flex-end;
-    color: var(--almost-white);
+    color: var(--less-white);
     padding: 3px;
 }
 
+#release-date {
+    grid-row: 2;
+    grid-column: 1;
+}
 #rating {
     opacity: 90%;
     grid-row: 3;
     grid-column: 1;
     color: greenyellow;
 }
-
 #genres {
     opacity: 90%;
     text-align: right;
     grid-row: 3;
     grid-column: 2 / span 4;
     cursor: pointer;
+}
+#start-date {
+    grid-column: 2 / span 4;
+    align-self: flex-end;
+    text-align: end;
 }
 
 
@@ -754,7 +783,7 @@ body.light {
     height: inherit;
     outline: none;
     border: none;
-    background-color: var(--main-light);
+    background-color: var(--main-lightest);
     color: var(--almost-white);
     box-shadow: inset 1px 1px 5px var(--shadow2);
 }

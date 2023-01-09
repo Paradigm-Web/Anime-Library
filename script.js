@@ -85,7 +85,7 @@ list_sections.forEach((s) => {
                         setTimeout(() => {
                             card_title.classList.remove('shown');
                         }, 3500);
-                    }, 600);
+                    }, 700);
                 }, 75);
             }, 500);
         });
@@ -108,6 +108,8 @@ list_sections.forEach((s) => {
                 card_title.classList.remove('shown');
             }, 1);
         });
+
+        
 
         // ep_count_btn.addEventListener('click', () => {
         //     let txt_p = document.querySelector('#eps > p');
