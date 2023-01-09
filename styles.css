@@ -684,6 +684,7 @@ body.light {
     font-size: .7em;
     align-items: center;
     opacity: 95%;
+    color: var(--txt-mid);
 }
 
 #eps {
