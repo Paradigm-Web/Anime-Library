@@ -719,6 +719,7 @@ body.light {
     align-items: center;
     justify-content: flex-end;
     color: var(--almost-white);
+    padding: 3px;
 }
 
 #rating {
@@ -746,7 +747,7 @@ body.light {
 }
 .notes input {
     font-size: .5em;
-    font-weight: 550;
+    font-weight: 500;
     padding: 5px;
     border-radius: 2px;
     width: inherit;
@@ -754,7 +755,7 @@ body.light {
     outline: none;
     border: none;
     background-color: var(--main-light);
-    color: var(--black-brown);
+    color: var(--almost-white);
     box-shadow: inset 1px 1px 5px var(--shadow2);
 }
 .notes input::placeholder {
