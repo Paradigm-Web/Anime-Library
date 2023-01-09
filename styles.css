@@ -725,6 +725,7 @@ body.light {
     opacity: 90%;
     grid-row: 3;
     grid-column: 1;
+    color: greenyellow;
 }
 
 #genres {
