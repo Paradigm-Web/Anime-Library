@@ -10,7 +10,7 @@
     --mid-raw: all .2s;
     --fast-raw: all .125s;
 
-    --card-border: 7px;
+    --card-border: 4px;
     --spacing-sm: 10px;
     --spacing-md: 15px;
     --container-width: 1200px;
@@ -34,6 +34,7 @@ html {
     /* footer support */
     position: relative;
     min-height: 100%;
+    image-rendering:optimizeQuality;
 }
 body {
     background: var(--main-mid);
@@ -75,12 +76,15 @@ body {
 */
 
 body.dark {
-    --main-light: rgb(51, 51, 51);
-    --main-mid: rgb(37, 37, 38);
-    --main-dark: rgb(30, 30, 30);
+    --main-light: rgb(42, 42, 42);
+    --main-medium: rgb(36, 36, 36);
+    --main-mid: rgb(30, 30, 30);
+    --main-dark: rgb(24, 24, 24);
     --main-mid-opac: rgba(37, 37, 38, 0.9);
     --main-dark-opac: rgba(30, 30, 30, 0.9);
-    --browny: rgba(148, 81, 22, 0.99);
+    --browny: rgba(163, 82, 24, 0.99);
+    --dark-brown: rgba(129, 70, 18, 0.99);
+    --black-brown: rgba(82, 44, 11, 0.99);
 
     --txt-light: #ff9e5e;
     --txt-mid: rgb(224, 123, 35);
@@ -532,18 +536,6 @@ body.light {
     font-size: 1.5em;
 }
 
-/* .static-img {
-    position: absolute;
-    background: url('card_img/naruto.jpg') no-repeat center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: inherit;
-    max-width: inherit;
-    width: 100%;
-    border-radius: var(--card-border);
-    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.35);
-} */
-
 .card-cover {
     transition: var(--mid-raw);
     position: absolute;
@@ -558,14 +550,14 @@ body.light {
     z-index: 0;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .card-cover.expand {
     transition: var(--slow-raw);
     transform: scale(1.45);
-    /* transform-origin: 0 50%; */
     z-index: 2;
-    cursor: pointer;
+    cursor: auto;
 }
 
 .card-cover .card-img {
@@ -578,7 +570,7 @@ body.light {
     height: 100%;
     border-radius: var(--card-border);
     overflow: hidden;
-    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 3px 6px var(--shadow2);
 }
 
 .card-img img {
@@ -619,9 +611,9 @@ body.light {
     left: 7px;
     scale: 90%;
     z-index: 2;
-    border-radius: 4px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.253);
-    padding: 2px 4px 2px 4px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.253);
+    padding: 3px 5px 3px 5px;
     background-color: var(--txt-mid-90);
     opacity: 0%;
 }
@@ -636,20 +628,135 @@ body.light {
 .card-cover.expand .more-info {
     top: 4px;
     left: 4px;
-    scale: 75%;
+    scale: 70%;
+}
+
+.card-title {
+    transition: var(--mid-trans);
+    position: absolute;
+    z-index: 2;
+    bottom: 120px;
+    left: 7px;
+    font-size: .9em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0px 0px 5px var(--shadow2);
+    opacity: 0;
+}
+.card-title.shown {
+    transition: var(--mid-trans);
+    opacity: 80%;
 }
 
 .card-info {
     transition: all .2s;
     flex: .5;
     opacity: 0;
-    background-color: var(--browny);
+    background-color: var(--main-medium);
     border-radius: 0 0 var(--card-border) var(--card-border);
+    position: relative;
 }
 .card-cover.expand .card-info {
     transition: all .4s;
     opacity: 100%;
-    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.253);
+    box-shadow: 0px 3px 4px var(--shadow2);
+    z-index: 2;
+}
+
+.card-info-wrapper {
+    color: white !important;
+    font-size: .7em;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 2px 8px 5px 8px;
+}
+
+.info-header {
+    flex: .4;
+    display: flex;
+    justify-content: space-between;
+    font-size: .7em;
+    align-items: center;
+    opacity: 95%;
+}
+
+#eps {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .2em;
+    cursor: pointer;
+}
+#eps i {
+    transition: var(--fast-trans);
+    opacity: 0;
+}
+#eps:hover i {
+    opacity: 100%;
+}
+
+#stars {
+    text-align: center;
+}
+#stars i {
+    scale: 90%;
+    cursor: pointer;
+}
+
+.info-body {
+    flex: 1;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    overflow: hidden;
+    font-size: .55em;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--almost-white);
+}
+
+#rating {
+    opacity: 90%;
+    grid-row: 3;
+    grid-column: 1;
+}
+
+#genres {
+    opacity: 90%;
+    text-align: right;
+    grid-row: 3;
+    grid-column: 2 / span 4;
+    cursor: pointer;
+}
+
+
+.info-footer {
+    flex: .3; 
+}
+.notes {
+    width: 100%;
+    height: 90%;
+}
+.notes input {
+    font-size: .5em;
+    font-weight: 550;
+    padding: 5px;
+    border-radius: 2px;
+    width: inherit;
+    height: inherit;
+    outline: none;
+    border: none;
+    background-color: var(--main-light);
+    color: var(--black-brown);
+    box-shadow: inset 1px 1px 5px var(--shadow2);
+}
+.notes input::placeholder {
+    color: var(--almost-white);
 }
 
 
@@ -713,14 +820,16 @@ body.light {
     left: 0;
     width: 100%;
     height: 100%;
+    padding-top: 8vh;
 }
 
 .modal {
     transition: all .03s ease-out;
     transform: scale(.9);
     background-color: var(--main-dark);
-    width: 45%;
-    height: 75%;
+    width: 48vw;
+    min-width: 550px;
+    height: 100vh;
     border-radius: 5px;
     box-shadow: .1em .1em .4em var(--shadow2), 1em 1em 2em var(--shadow5);
     display: flex;
@@ -728,7 +837,7 @@ body.light {
     justify-content: flex-start;
     align-items: center;
     color: var(--almost-white);
-    z-index: 7;
+    z-index: 8;
     opacity: 0%;
 }
 
@@ -752,16 +861,16 @@ body.light {
 }
 
 #card-modal-img {
-    flex: .3;
+    flex: .32;
     width: 100%;
     height: 250px;
     overflow: hidden;
     background: url('https://i.pinimg.com/originals/76/96/98/769698307761143fa77e3db7dfa8030b.gif') no-repeat center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 90%;
     z-index: -1;
     border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 .card-modal-header {
@@ -772,10 +881,10 @@ body.light {
 }
 #close-card {
     position: absolute;
-    right: 8px;
-    top: 6px;
-    transform: scale(1.2);
-    opacity: 75%;
+    right: 12px;
+    top: 10px;
+    transform: scale(1.5);
+    opacity: 85%;
 }
 #close-card:hover {
     transition: var(--fast-trans);
@@ -785,9 +894,9 @@ body.light {
 #favorite-btn {
     animation: bounce .15s var(--mid-curve) both;
     position: absolute;
-    left: 11px;
-    top: 9px;
-    scale: 160%;
+    left: 15px;
+    top: 12px;
+    scale: 180%;
     opacity: 80%;
     cursor: pointer;
 }

@@ -58,48 +58,73 @@ list_sections.forEach((s) => {
         const img1 = card_img.children[0];
         const img2 = card_img.children[1];
         const more_btn = card.querySelector('.more-info');
+        const card_title = card.querySelector('.card-title');
+        const ep_count_btn = card.querySelector('#eps > i');
         let isActive = false;
         let isHovered = false;
     
         card_img.addEventListener('mouseenter', () => {
-        isHovered = true;
-        // more_btn.style.opacity = '100%';
-        if (isActive) return;
-        setTimeout(() => {
-        if (!isHovered) return;
-        card.classList.add('expand');
-        isActive = true;
-        setTimeout(() => {
-            if (!isHovered) return;
-            img2.classList.add('fade-in');
-            img2.classList.remove('fade-out');
+            isHovered = true;
+            // more_btn.style.opacity = '100%';
+            if (isActive) return;
             setTimeout(() => {
-                if (!isActive) return;
                 if (!isHovered) return;
-                img1.style.opacity = '0%';
-            }, 600);
-        }, 75);
-        }, 500);
+                card.classList.add('expand');
+                isActive = true;
+                setTimeout(() => {
+                    if (!isHovered) return;
+                    img2.classList.add('fade-in');
+                    img2.classList.remove('fade-out');
+                    setTimeout(() => {
+                        card_title.classList.add('shown');
+                    }, 200);
+                    setTimeout(() => {
+                        if (!isActive) return;
+                        if (!isHovered) return;
+                        img1.style.opacity = '0%';
+                        setTimeout(() => {
+                            card_title.classList.remove('shown');
+                        }, 3500);
+                    }, 600);
+                }, 75);
+            }, 500);
         });
         card_img.addEventListener('mouseleave', (e) => {
-        isHovered = false;
+            if(isActive) return;
+            isHovered = false;
         // if (e.target == card_img) more_btn;
         // more_btn.style.opacity = '0';
         });
     
         card.addEventListener('mouseleave', () => {
-        isHovered = false;
-        if (!isActive) return;
-        card.classList.remove('expand');
-        isActive = false;
-        setTimeout(() => {
-        img1.style.opacity = '100%';
-        img2.classList.remove('fade-in');
-        img2.classList.add('fade-out');
-        }, 1);
+            isHovered = false;
+            if (!isActive) return;
+            card.classList.remove('expand');
+            isActive = false;
+            setTimeout(() => {
+                img1.style.opacity = '100%';
+                img2.classList.remove('fade-in');
+                img2.classList.add('fade-out');
+                card_title.classList.remove('shown');
+            }, 1);
         });
+
+        // ep_count_btn.addEventListener('click', () => {
+        //     let txt_p = document.querySelector('#eps > p');
+        //     let txt = txt_p.textContent.split('/');
+        //     let current = parseInt(txt[0]);
+        //     let total = txt[1];
+        //     current++;
+        //     if (current == parseInt(total)) {
+        //         alert('Content completed!');
+        //         current = 0;
+        //     }
+        //     txt_p.textContent = current + '/' + total;
+        // });
     });
 });
+
+
 
 
 /**
@@ -127,4 +152,9 @@ close_card.addEventListener('click', () => {
 const fav_btn = document.querySelector('#favorite-btn');
 fav_btn.addEventListener('click', () => {
     fav_btn.classList.toggle('active');
+});
+
+card_m_wrapper.addEventListener('click', (e) => {
+    if (e.target != card_m_wrapper) return;
+    toggleModal(card_modal, card_m_wrapper);
 });
