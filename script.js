@@ -55,10 +55,10 @@ list_sections.forEach((s) => {
     
     cards.forEach((card) => {
         const card_img = card.querySelector('.card-img');
-        const img1 = card_img.children[0];
-        const img2 = card_img.children[1];
+        const card_title = card_img.children[0];
+        const img1 = card_img.children[1];
+        const img2 = card_img.children[2];
         const more_btn = card.querySelector('.more-info');
-        const card_title = card.querySelector('.card-title');
         const ep_count_btn = card.querySelector('#eps > i');
         let isActive = false;
         let isHovered = false;
@@ -86,7 +86,7 @@ list_sections.forEach((s) => {
                             card_title.classList.remove('shown');
                         }, 3500);
                     }, 700);
-                }, 75);
+                }, 100);
             }, 500);
         });
         card_img.addEventListener('mouseleave', (e) => {
@@ -99,6 +99,7 @@ list_sections.forEach((s) => {
         card.addEventListener('mouseleave', () => {
             isHovered = false;
             if (!isActive) return;
+            card_title.classList.remove('shown');
             card.classList.remove('expand');
             isActive = false;
             setTimeout(() => {

@@ -539,7 +539,7 @@ body.light {
 }
 
 .card-cover {
-    transition: var(--mid-raw);
+    transition: all .15s ease-out;
     position: absolute;
     /* background: url('card_img/naruto.jpg') no-repeat center center; */
     /* background-size: cover;
@@ -556,7 +556,7 @@ body.light {
 }
 
 .card-cover.expand {
-    transition: var(--slow-raw);
+    transition: all .25s;
     transform: scale(1.45);
     z-index: 2;
     cursor: auto;
@@ -597,7 +597,7 @@ body.light {
 }
 
 .card-cover.expand .card-img {
-    transition: var(--slow-raw);
+    transition: var(--mid-raw);
     flex: .8;
     border-radius: var(--card-border) var(--card-border) 0 0;
 }
@@ -631,24 +631,24 @@ body.light {
     scale: 60%;
 }
 
-.card-title {
-    transition: var(--mid-trans);
-    position: absolute;
-    z-index: 2;
-    bottom: 120px;
-    left: 7px;
-    font-size: .9em;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0px 0px 5px var(--shadow2);
-    opacity: 0;
+#card-title {
+   transition: all .2s ease-out;
+   width: 32%;
+   height: auto;
+   bottom: 6px;
+   left: 6px;
+   opacity: 100%;
+   z-index: 4; 
+   filter: drop-shadow(0 0 2px white);
+   object-fit: contain;
+   opacity: 0;
 }
-.card-title.shown {
-    transition: var(--mid-trans);
-    opacity: 80%;
+#card-title.shown {
+    transition: all .2s ease-out;
+    opacity: 75%;
 }
 
-.pause-gif {
+/* .pause-gif {
     position: absolute;
     z-index: 2;
     right: 4px;
@@ -664,10 +664,10 @@ body.light {
 }
 .card-cover.expand .pause-gif:hover {
     opacity: 80%;
-}
+} */
 
 .card-info {
-    transition: all .2s;
+    transition: all .15s ease-out;
     flex: .5;
     opacity: 0;
     background-color: var(--main-medium);
@@ -675,7 +675,7 @@ body.light {
     position: relative;
 }
 .card-cover.expand .card-info {
-    transition: all .4s;
+    transition: all .25s;
     opacity: 100%;
     box-shadow: 0px 3px 4px var(--shadow2);
     z-index: 2;
