@@ -76,6 +76,7 @@ list_sections.forEach((s) => {
                     img2.classList.add('fade-in');
                     img2.classList.remove('fade-out');
                     setTimeout(() => {
+                        if (!isHovered) return;
                         card_title.classList.add('shown');
                     }, 200);
                     setTimeout(() => {
@@ -98,8 +99,8 @@ list_sections.forEach((s) => {
     
         card.addEventListener('mouseleave', () => {
             isHovered = false;
-            if (!isActive) return;
             card_title.classList.remove('shown');
+            if (!isActive) return;
             card.classList.remove('expand');
             isActive = false;
             setTimeout(() => {
