@@ -621,6 +621,7 @@ body.light {
     transition: var(--fast-trans);
     background-color: var(--txt-mid);
     color: var(--almost-white);
+    transform: scale(1.2);
 }
 .card-wrapper:hover .more-info {
     opacity: 100%;
@@ -632,7 +633,7 @@ body.light {
 }
 
 #card-title {
-   transition: all .2s ease-out;
+   transition: all .3s ease-out;
    width: 32%;
    height: auto;
    bottom: 6px;
@@ -644,7 +645,7 @@ body.light {
    opacity: 0;
 }
 #card-title.shown {
-    transition: all .2s ease-out;
+    transition: all .15s ease-out;
     opacity: 75%;
 }
 
@@ -735,6 +736,7 @@ body.light {
     flex: 1;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    gap: 1px;
     overflow: hidden;
     font-size: .55em;
     align-items: center;
@@ -753,6 +755,9 @@ body.light {
     grid-column: 1;
     color: greenyellow;
 }
+#rating.mature {
+    color: gold;
+}
 #genres {
     opacity: 90%;
     text-align: right;
@@ -762,6 +767,12 @@ body.light {
 }
 #start-date {
     grid-column: 2 / span 4;
+    align-self: flex-end;
+    text-align: end;
+}
+#finish-date {
+    grid-column: 2 / span 4;
+    grid-row: 2;
     align-self: flex-end;
     text-align: end;
 }
