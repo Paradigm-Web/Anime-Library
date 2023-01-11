@@ -34,14 +34,21 @@ function openSettings() {
     document.querySelector('#settings').classList.toggle('settings-clicked');
 }
 settings_btn.addEventListener('click', () => {
-    openSettings();
+    openSettings(); 
 });
+// settings_wrapper.addEventListener('mouseleave', () => {
+//     setTimeout(() => {
+//         openSettings(); 
+//     }, 50); 
+// });
 
 
 /**
  * MEDIA CARD HANDLERS
  */
 
+
+// REWORK THIS TO BE EASIER TO READ/MODIFY AND FIX IMAGE FADE TRANSITION
 const list_sections = document.querySelectorAll('.content-section');
 list_sections.forEach((s) => {
     const cards = s.querySelectorAll('.card-cover');
@@ -59,7 +66,11 @@ list_sections.forEach((s) => {
         const img1 = card_img.children[1];
         const img2 = card_img.children[2];
         const more_btn = card.querySelector('.more-info');
-        const ep_count_btn = card.querySelector('#eps > i');
+        const ep_count_btn = card.querySelector('#eps > span');
+        console.log(ep_count_btn);
+        const star_rating = card.querySelector('#stars i');
+        console.log(star_rating);
+        const star_wrapper = card.querySelector('#stars-modal');
         let isActive = false;
         let isHovered = false;
     
@@ -100,6 +111,7 @@ list_sections.forEach((s) => {
         card.addEventListener('mouseleave', () => {
             isHovered = false;
             card_title.classList.remove('shown');
+            star_wrapper.classList.remove('active');
             if (!isActive) return;
             card.classList.remove('expand');
             isActive = false;
@@ -111,20 +123,32 @@ list_sections.forEach((s) => {
             }, 1);
         });
 
-        
+        star_rating.addEventListener('mouseenter', () => {
+            star_wrapper.classList.add('active');
+        });
+        star_wrapper.addEventListener('mouseleave', () => {
+            star_wrapper.classList.remove('active');
+        });
 
-        // ep_count_btn.addEventListener('click', () => {
-        //     let txt_p = document.querySelector('#eps > p');
-        //     let txt = txt_p.textContent.split('/');
-        //     let current = parseInt(txt[0]);
-        //     let total = txt[1];
-        //     current++;
-        //     if (current == parseInt(total)) {
-        //         alert('Content completed!');
-        //         current = 0;
-        //     }
-        //     txt_p.textContent = current + '/' + total;
-        // });
+        
+        try {
+            ep_count_btn.addEventListener('click', () => {
+                let txt_p = card.querySelector('#eps > p');
+                let txt = txt_p.textContent.split('/');
+                let current = parseInt(txt[0]);
+                let total = txt[1];
+                current++;
+                if (current == parseInt(total)) {
+                    alert('Content completed!');
+                    current = 0;
+                }
+                txt_p.textContent = current + '/' + total;
+            });
+        } catch (error) {
+            return;
+        }
+
+        
     });
 });
 

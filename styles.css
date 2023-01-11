@@ -731,6 +731,37 @@ body.light {
     scale: 90%;
     cursor: pointer;
 }
+#stars-modal {
+    transition: var(--mid-raw);
+    position: absolute;
+    width: 0;
+    height: 20%;
+    background-color: var(--main-lightest);
+    box-shadow: 2px 2px 3px var(--shadow2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    right: 5px;
+    border-radius: var(--card-border);
+    overflow: hidden;
+}
+#stars-modal.active {
+    padding-left: 3px;
+    padding-right: 3px;
+    transition: var(--mid-raw);
+    width: 65%;
+}
+
+#stars-modal i {
+    scale: 90%;
+    cursor: pointer;
+    color: var(--almost-white);
+}
+
+#stars-modal i:hover {
+    filter: brightness(0) saturate(100%) invert(80%) sepia(79%) saturate(3993%) hue-rotate(318deg) brightness(90%) contrast(101%) drop-shadow(var(--txt-dark) 0 0 4px);
+}
+
 
 .info-body {
     flex: 1;
@@ -759,6 +790,7 @@ body.light {
     color: gold;
 }
 #genres {
+    margin-top: 2px;
     opacity: 90%;
     text-align: right;
     grid-row: 3;
