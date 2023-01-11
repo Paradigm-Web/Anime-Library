@@ -65,11 +65,8 @@ list_sections.forEach((s) => {
         const card_title = card_img.children[0];
         const img1 = card_img.children[1];
         const img2 = card_img.children[2];
-        const more_btn = card.querySelector('.more-info');
         const ep_count_btn = card.querySelector('#eps > span');
-        console.log(ep_count_btn);
         const star_rating = card.querySelector('#stars i');
-        console.log(star_rating);
         const star_wrapper = card.querySelector('#stars-modal');
         let isActive = false;
         let isHovered = false;
@@ -123,6 +120,14 @@ list_sections.forEach((s) => {
             }, 1);
         });
 
+        const stars = star_wrapper.querySelectorAll('i');
+        stars.forEach((star, i) => {
+            star.addEventListener('mouseover', () => {
+                stars.forEach((star, j) => {
+                    i >= j ? star.classList.add('active') : star.classList.remove('active');
+                });
+            });
+        });
         star_rating.addEventListener('mouseenter', () => {
             star_wrapper.classList.add('active');
         });

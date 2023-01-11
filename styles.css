@@ -758,7 +758,7 @@ body.light {
     color: var(--almost-white);
 }
 
-#stars-modal i:hover {
+#stars-modal i.active {
     filter: brightness(0) saturate(100%) invert(80%) sepia(79%) saturate(3993%) hue-rotate(318deg) brightness(90%) contrast(101%) drop-shadow(var(--txt-dark) 0 0 4px);
 }
 
