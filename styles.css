@@ -759,6 +759,10 @@ body.light {
 }
 
 #stars-modal i.active {
+    color: var(--txt-mid);
+}
+
+#stars-modal i.hovered {
     filter: brightness(0) saturate(100%) invert(80%) sepia(79%) saturate(3993%) hue-rotate(318deg) brightness(90%) contrast(101%) drop-shadow(var(--txt-dark) 0 0 4px);
 }
 
@@ -788,6 +792,10 @@ body.light {
 }
 #rating.mature {
     color: gold;
+}
+#rating.r18 {
+    color: red;
+    font-weight: 600;
 }
 #genres {
     margin-top: 2px;

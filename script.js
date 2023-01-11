@@ -124,6 +124,12 @@ list_sections.forEach((s) => {
         stars.forEach((star, i) => {
             star.addEventListener('mouseover', () => {
                 stars.forEach((star, j) => {
+                    i >= j ? star.classList.add('hovered') : star.classList.remove('hovered');
+                });
+            });
+            star.addEventListener('click', () => {
+                stars.forEach((star, j) => {
+                    star.classList.remove('hovered');
                     i >= j ? star.classList.add('active') : star.classList.remove('active');
                 });
             });
