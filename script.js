@@ -66,9 +66,9 @@ list_sections.forEach((s) => {
         const img1 = card_img.children[1];
         const img2 = card_img.children[2];
         const ep_count_btn = card.querySelector('#eps > span');
-        const star_text = card.querySelector('#stars p');
-        const star_rating = card.querySelector('#stars i');
-        const star_wrapper = card.querySelector('#stars-modal');
+        const star_text = card.querySelector('#rating p');
+        const star_rating = card.querySelector('#rating > i');
+        const star_wrapper = card.querySelector('#rating-modal');
         let isActive = false;
         let isHovered = false;
     
@@ -121,26 +121,58 @@ list_sections.forEach((s) => {
             }, 1);
         });
 
-        const stars = star_wrapper.querySelectorAll('i');
-        stars.forEach((star, i) => {
-            star.addEventListener('mouseover', () => {
-                stars.forEach((star, j) => {
-                    i >= j ? star.classList.add('hovered') : star.classList.remove('hovered');
+        const stars_top = star_wrapper.querySelectorAll('#stars-top > .info-btn');
+        const stars_bottom = star_wrapper.querySelectorAll('#stars-bottom > .info-btn');
+        const more_stars = star_wrapper.querySelector('.stars-more');
+        wireRatingSystem(stars_top);
+        wireRatingSystem(stars_bottom);
+
+        function wireRatingSystem(stars) {
+            stars.forEach((star, i) => {
+                star.addEventListener('mouseover', () => {
+                    stars.forEach((star, j) => {
+                        i >= j ? star.classList.add('hovered') : star.classList.remove('hovered');
+                    });
+                });
+                star.addEventListener('click', () => {
+                    let rating = star_text.textContent.split('.');
+                    let new_rating = star.getAttribute('data-rating');
+                    if (new_rating == '0') {
+                        star_text.textContent = rating[0];
+                        hoverStars(stars, i);
+                        return;
+                    }
+                    else if (new_rating == '10') {
+                        star_text.textContent = '10';
+                        hoverStars(stars, i);
+                        return;
+                    }
+                    star.getAttribute('data') == 'top' ? rating[0] = new_rating : rating[1] = new_rating;
+                    rating = rating.join('.');
+                    if (rating > 10) return;
+                    star_text.textContent = rating;
+                    hoverStars(stars, i);
                 });
             });
-            star.addEventListener('click', () => {
-                star_text.textContent = star.getAttribute('title');
-                stars.forEach((star, j) => {
-                    star.classList.remove('hovered');
-                    i >= j ? star.classList.add('active') : star.classList.remove('active');
-                });
+        }
+
+        function hoverStars(stars, i) {
+            stars.forEach((star, j) => {
+                star.classList.remove('hovered');
+                i >= j ? star.classList.add('active') : star.classList.remove('active');
             });
+        }
+
+        
+        more_stars.addEventListener('mouseenter', () => {
+            star_wrapper.classList.add('more');
         });
         star_rating.addEventListener('mouseenter', () => {
             star_wrapper.classList.add('active');
         });
         star_wrapper.addEventListener('mouseleave', () => {
             star_wrapper.classList.remove('active');
+            star_wrapper.classList.remove('more');
         });
 
         
