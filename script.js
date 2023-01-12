@@ -66,6 +66,7 @@ list_sections.forEach((s) => {
         const img1 = card_img.children[1];
         const img2 = card_img.children[2];
         const ep_count_btn = card.querySelector('#eps > span');
+        const star_text = card.querySelector('#stars p');
         const star_rating = card.querySelector('#stars i');
         const star_wrapper = card.querySelector('#stars-modal');
         let isActive = false;
@@ -128,6 +129,7 @@ list_sections.forEach((s) => {
                 });
             });
             star.addEventListener('click', () => {
+                star_text.textContent = star.getAttribute('title');
                 stars.forEach((star, j) => {
                     star.classList.remove('hovered');
                     i >= j ? star.classList.add('active') : star.classList.remove('active');

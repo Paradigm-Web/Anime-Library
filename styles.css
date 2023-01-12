@@ -725,6 +725,8 @@ body.light {
 }
 
 #stars {
+    display: flex;
+    gap: 1px;
     text-align: center;
 }
 #stars i {
@@ -753,17 +755,20 @@ body.light {
 }
 
 #stars-modal i {
+    opacity: 60%;
     scale: 90%;
     cursor: pointer;
     color: var(--almost-white);
 }
 
 #stars-modal i.active {
-    color: var(--txt-mid);
+    opacity: 90%;
+    filter: invert(36%) sepia(85%) saturate(429%) hue-rotate(354deg) brightness(98%) contrast(99%) drop-shadow(var(--txt-dark) 0 0 5px);
 }
 
 #stars-modal i.hovered {
-    filter: brightness(0) saturate(100%) invert(80%) sepia(79%) saturate(3993%) hue-rotate(318deg) brightness(90%) contrast(101%) drop-shadow(var(--txt-dark) 0 0 4px);
+    opacity: 100%;
+    color: var(--txt-dark);
 }
 
 
