@@ -36,6 +36,7 @@ html {
     position: relative;
     min-height: 100%;
     image-rendering:optimizeQuality;
+    scroll-behavior: smooth;
 }
 body {
     background: var(--main-mid);
@@ -45,6 +46,10 @@ body {
     word-wrap: break-word;
     /* footer support */
     margin-bottom: 100px;
+}
+body img,
+body i {
+    user-select: none;
 }
 
 /*
@@ -90,6 +95,8 @@ body.dark {
 
     --txt-light: #ff9e5e;
     --txt-mid: rgb(224, 123, 35);
+    --txt-medium: rgb(206, 112, 30);
+    --txt-medium-95: rgb(206, 112, 30, 0.95);
     --txt-mid-40: rgba(224, 123, 35, 0.4);
     --txt-mid-50: rgba(224, 123, 35, 0.5);
     --txt-mid-60: rgba(224, 123, 35, 0.6);
@@ -204,6 +211,7 @@ body.light {
         filter: drop-shadow(0 0 3px var(--txt-dark)) drop-shadow(0 0 25px var(--txt-opac-1));
     }
 }
+
 
 /*
 * PAGE STYLES
@@ -431,6 +439,58 @@ body.light {
     display: flex;
     gap: 3em;
 }
+
+#add {
+    position: relative;
+    z-index: 1;
+}
+#add:hover {
+    opacity: 100%;
+}
+.add-menu {
+    transition: all .2s ease-out;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    background-color: var(--txt-medium-95);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    box-shadow: 2px 2px 5px var(--shadow2);
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    opacity: 0;
+    scale: 0;
+}
+.add-menu.active {
+    scale: 100%;
+    opacity: 100%;
+    transition: width .12s ease-out, height .17s ease-out, border-radius .2s ease-out;
+    border-radius: 3px;
+    height: 100px;
+    width: 90px;
+}
+.add-menu p {
+    transition: var(--mid-raw);
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px;
+    font-size: .8em;
+    opacity: 0;
+    height: 0;
+}
+.add-menu.active p {
+    transition: var(--mid-raw);
+    height: auto;
+    opacity: 100%;
+}
+.add-menu.active p:hover {
+    background-color: var(--txt-mid);
+}
+
 
 .setting,
 .control {

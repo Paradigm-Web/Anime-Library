@@ -1,4 +1,10 @@
 /**
+ * OTHER FUNCTIONS
+ */
+
+const scroller = (document.scrollingElement || document.body);
+
+/**
  * HEADER HANDLERS
  */
 
@@ -43,12 +49,61 @@ settings_btn.addEventListener('click', () => {
 // });
 
 
+// ADD BUTTON HANDLERS
+const add_btn = document.querySelector('#add i');
+const add_menu_wrapper = document.querySelector('.add-menu');
+const add_btns = document.querySelectorAll('.add-menu p');
+add_btn.addEventListener('click', () => {
+    add_menu_wrapper.classList.add('active');
+});
+add_menu_wrapper.addEventListener('mouseleave', () => {
+    add_menu_wrapper.classList.remove('active');
+});
+add_btns.forEach((b) => {
+    b.addEventListener('click', () => {
+        addBtnFunctions[b.getAttribute('data')]();
+    });
+});
+
+let addBtnFunctions = {
+    'new_list': () => {
+        let new_list = document.createElement('div');
+        new_list.classList.add('content-section');
+        let list_title = document.createElement('div');
+        list_title.classList.add('field-title');
+        list_title.innerHTML = "Sample List";
+        let list_cards = document.createElement('div');
+        list_cards.classList.add('cards-section');
+        let list_addCard = document.createElement('div');
+        list_addCard.classList.add('card-wrapper');
+        list_addCard.classList.add('add-card');
+        let addCard_inner = document.createElement('i');
+        addCard_inner.classList.add('fa-solid');
+        addCard_inner.classList.add('fa-plus');
+
+        list_addCard.appendChild(addCard_inner);
+        list_cards.appendChild(list_addCard);
+        new_list.appendChild(list_title);
+        new_list.appendChild(list_cards);
+        content_area.appendChild(new_list);
+        scroller.scrollTop = scroller.scrollHeight;
+    },
+    'quick_add': () => {
+        
+    },
+    'new_item': () => {
+        
+    }
+}
+
+
 /**
  * MEDIA CARD HANDLERS
  */
 
 
 // REWORK THIS TO BE EASIER TO READ/MODIFY AND FIX IMAGE FADE TRANSITION
+const content_area = document.querySelector('.content');
 const list_sections = document.querySelectorAll('.content-section');
 list_sections.forEach((s) => {
     const cards = s.querySelectorAll('.card-cover');
