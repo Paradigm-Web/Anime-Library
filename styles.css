@@ -579,6 +579,37 @@ body.light {
     padding-bottom: 12px;
 }
 
+.field-title p {
+    /* display: inline-block; */
+    display: none;
+}
+
+.field-title input {
+    height: 100%;
+    width: 70%;
+    background-color: transparent;
+    border: none;
+    color: var(--almost-white);
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.616);
+    font-size: .9em;
+    font-weight: 550;
+    display: default;
+}
+.field-title input:focus {
+    border: none;
+    outline: none;
+}
+
+.edit-title {
+    display: none;
+    scale: 60%;
+    cursor: pointer;
+    margin-left: .5em;
+}
+.edit-title:hover {
+    filter: drop-shadow(0 0 4px white);
+}
+
 /* Media Card Section */
 
 .cards-section {

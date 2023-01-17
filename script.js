@@ -65,28 +65,67 @@ add_btns.forEach((b) => {
     });
 });
 
+let sample_no = 0;
 let addBtnFunctions = {
     'new_list': () => {
         let new_list = document.createElement('div');
+        new_list.id = `sample-list${sample_no}`;
+        let id = new_list.id;
+        sample_no++;
         new_list.classList.add('content-section');
+
         let list_title = document.createElement('div');
         list_title.classList.add('field-title');
-        list_title.innerHTML = "Sample List";
+        let title_p = document.createElement('p');
+        let title_input = document.createElement('input');
+        title_input.type = 'text';
+        title_input.placeholder = 'Sample List';
+        title_input.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                title_input.style.display = 'none';
+                title_p.textContent = title_input.value;
+                title_p.style.display = 'inline-block';
+                edit_title.style.display = 'inline-block'; 
+            }
+        });
+        let edit_title = document.createElement('div');
+        edit_title.classList.add('edit-title');
+        let edit_icon = document.createElement('i');
+        edit_icon.classList.add('fa-solid');
+        edit_icon.classList.add('fa-pen');
+        edit_icon.addEventListener('click', () => {
+            title_input.style.display = 'inline-block';
+            title_p.style.display = 'none';
+            edit_title.style.display = 'none';
+            title_input.focus();
+            title_input.select();
+        });
+        list_title.appendChild(title_p);
+        list_title.appendChild(title_input);
+        edit_title.appendChild(edit_icon);
+        list_title.appendChild(edit_title);
+        
+
         let list_cards = document.createElement('div');
         list_cards.classList.add('cards-section');
         let list_addCard = document.createElement('div');
         list_addCard.classList.add('card-wrapper');
         list_addCard.classList.add('add-card');
-        let addCard_inner = document.createElement('i');
-        addCard_inner.classList.add('fa-solid');
-        addCard_inner.classList.add('fa-plus');
+        let addCard_icon = document.createElement('i');
+        addCard_icon.classList.add('fa-solid');
+        addCard_icon.classList.add('fa-plus');
 
-        list_addCard.appendChild(addCard_inner);
+        list_addCard.appendChild(addCard_icon);
         list_cards.appendChild(list_addCard);
         new_list.appendChild(list_title);
         new_list.appendChild(list_cards);
         content_area.appendChild(new_list);
         scroller.scrollTop = scroller.scrollHeight;
+        let this_title_input = content_area.querySelector(`#${id} input`);
+        console.log(id);
+        console.log(this_title_input);
+        this_title_input.focus();
+        this_title_input.select();
     },
     'quick_add': () => {
         
