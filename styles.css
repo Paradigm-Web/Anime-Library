@@ -582,9 +582,11 @@ body.light {
 .field-title p {
     /* display: inline-block; */
     display: none;
+    text-align: center;
 }
 
 .field-title input {
+    padding: 0;
     height: 100%;
     width: 70%;
     background-color: transparent;
@@ -601,13 +603,22 @@ body.light {
 }
 
 .edit-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    opacity: 30%;
     display: none;
     scale: 60%;
     cursor: pointer;
     margin-left: .5em;
+    align-self: flex-end;
 }
 .edit-title:hover {
+    opacity: 75%;
     filter: drop-shadow(0 0 4px white);
+}
+.edit-title i {
+    margin-top: 3px;
 }
 
 /* Media Card Section */
@@ -680,6 +691,7 @@ body.light {
 }
 
 .img-front {
+    transition: opacity .25s ease-out;
     opacity: 100%;
 }
 .fade-out {

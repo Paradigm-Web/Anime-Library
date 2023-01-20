@@ -68,7 +68,18 @@ add_btns.forEach((b) => {
 let sample_no = 0;
 let addBtnFunctions = {
     'new_list': () => {
-        let new_list = document.createElement('div');
+        newList();
+    },
+    'quick_add': () => {
+        quickAdd('current');
+    },
+    'new_item': () => {
+        
+    }
+}
+
+function newList() {
+    let new_list = document.createElement('div');
         new_list.id = `sample-list${sample_no}`;
         let id = new_list.id;
         sample_no++;
@@ -126,13 +137,247 @@ let addBtnFunctions = {
         console.log(this_title_input);
         this_title_input.focus();
         this_title_input.select();
-    },
-    'quick_add': () => {
-        
-    },
-    'new_item': () => {
-        
+}
+
+function quickAdd(list) {
+    let cardWrapper = document.createElement('div');
+    cardWrapper.classList.add('card-wrapper');
+    cardWrapper.setAttribute('data', list);
+    let cardCover = document.createElement('div')
+    cardCover.classList.add('card-cover');
+
+    // IMAGES
+    let cardIMGWrapper = document.createElement('div');
+    cardIMGWrapper.classList.add('card-img')
+    let cardTitle = document.createElement('img');
+    cardTitle.setAttribute('id', 'card-title')
+    cardTitle.setAttribute('src', 'card_titles/narutoship.png');
+    cardTitle.setAttribute('title', 'Naruto: Shippuden');
+    let imgFront = document.createElement('img')
+    imgFront.classList.add('img-front');
+    imgFront.setAttribute('src', 'card_img/naruto.jpg');
+    let imgGIF = document.createElement('img');
+    imgGIF.classList.add('img-back');
+    imgGIF.setAttribute('src', 'https://i.pinimg.com/originals/76/96/98/769698307761143fa77e3db7dfa8030b.gif');
+    cardIMGWrapper.appendChild(cardTitle);
+    cardIMGWrapper.appendChild(imgFront);
+    cardIMGWrapper.appendChild(imgGIF);
+    cardCover.appendChild(cardIMGWrapper);
+    
+    let moreInfo = document.createElement('div');
+    moreInfo.classList.add('more-info');
+    moreInfo.setAttribute('title', 'More Info');
+    let moreInfoIcon = document.createElement('i');
+    moreInfoIcon.classList.add('info-btn', 'fa-solid', 'fa-ellipsis');
+    moreInfo.appendChild(moreInfoIcon);
+
+    // CARD INFO AREA
+    let cardInfo = document.createElement('div');
+    cardInfo.classList.add('card-info');
+    let cardInfoWrapper = document.createElement('div');
+    cardInfoWrapper.classList.add('card-info-wrapper');
+
+    // INFO HEADER
+    let infoHeader = document.createElement('div');
+    infoHeader.classList.add('info-header');
+    let eps = document.createElement('div');
+    eps.setAttribute('id', 'eps');
+    let epsP = document.createElement('p');
+    epsP.textContent = '3/500';
+    eps.appendChild(epsP);
+    let span = document.createElement('span');
+    span.textContent = '+';
+    eps.appendChild(span);
+    let rating = document.createElement('div');
+    rating.setAttribute('id', 'rating');
+    let ratingP = document.createElement('p');
+    ratingP.textContent = '0';
+    rating.appendChild(ratingP);
+    let ratingIcon = document.createElement('i');
+    ratingIcon.classList.add('info-btn', 'fa-solid', 'fa-star');
+    rating.appendChild(ratingIcon);
+    let ratingModal = document.createElement('div');
+    ratingModal.setAttribute('id', 'rating-modal');
+    let starWrapper = document.createElement('div');
+    starWrapper.classList.add('stars-wrapper');
+    starWrapper.setAttribute('id', 'stars-top');
+    let moreStars = document.createElement('div')
+    moreStars.classList.add('stars-more');
+    let moreStarsIcon = document.createElement('i')
+    moreStarsIcon.classList.add('fa-solid', 'fa-circle-down');
+    moreStars.appendChild(moreStarsIcon);
+    starWrapper.appendChild(moreStars);
+    let starBottom = document.createElement('div');
+    starBottom.classList.add('stars-wrapper');
+    starBottom.setAttribute('id', 'stars-bottom');
+    let zero = document.createElement('i');
+    zero.classList.add('info-btn', 'fa-solid', 'fa-0');
+    zero.setAttribute('data', 'bottom');
+    zero.setAttribute('data-rating', '0');
+    zero.setAttribute('title', '0');
+    starBottom.appendChild(zero);
+
+    createStars('top', starWrapper);
+    createStars('bottom', starBottom);
+
+    function createStars(location, wrapper) {
+        for(let i=1; i < 11; i++) {
+            let star = document.createElement('i');
+            star.classList.add('info-btn', 'fa-solid', 'fa-star');
+            star.setAttribute('data', location);
+            star.setAttribute('data-rating', i);
+            star.setAttribute('title', i);
+            wrapper.appendChild(star);
+        }
     }
+    let space = document.createElement('div');
+    space.setAttribute('id', 'space');
+    starBottom.appendChild(space);
+    ratingModal.appendChild(starWrapper);
+    ratingModal.appendChild(starBottom);
+    infoHeader.append(eps, rating, ratingModal);
+
+    // INFO BODY
+    let infoBody = document.createElement('div');
+    infoBody.classList.add('info-body');
+    let contentType = document.createElement('div');
+    contentType.setAttribute('id', 'content-type');
+    let releaseDate = document.createElement('div');
+    releaseDate.setAttribute('id', 'release-date');
+    let ageRating = document.createElement('div');
+    ageRating.setAttribute('id', 'age-rating');
+    let startDate = document.createElement('div');
+    startDate.setAttribute('id', 'start-date');
+    let finishDate = document.createElement('div');
+    finishDate.setAttribute('id', 'finish-date');
+    let genres = document.createElement('div');
+    genres.setAttribute('id', 'genres');
+
+    contentType.textContent = 'Series';
+    releaseDate.textContent = 'Winter 2007';
+    ageRating.textContent = 'PG-13';
+    startDate.textContent = 'Started: 23.09.22';
+    finishDate.textContent = '';
+    genres.textContent = 'Action • Comedy • Shounen • Super Power';
+    infoBody.append(contentType, releaseDate, ageRating, startDate, finishDate, genres);
+
+    // INFO FOOTER
+    let infoFooter = document.createElement('div');
+    infoFooter.classList.add('info-footer');
+    let notes = document.createElement('div');
+    notes.classList.add('notes');
+    let notesInput = document.createElement('input');
+    notesInput.setAttribute('id', 'notes-textbox');
+    notesInput.setAttribute('type', 'text');
+    notesInput.setAttribute('placeholder', 'Quick Notes');
+    notes.appendChild(notesInput);
+    infoFooter.append(notes);
+
+    // APPENDING
+    cardInfoWrapper.append(infoHeader, infoBody, infoFooter);
+    cardInfo.appendChild(cardInfoWrapper);
+
+    cardCover.append(cardIMGWrapper, moreInfo, cardInfo);
+    cardWrapper.appendChild(cardCover);
+    console.log(cardWrapper);
+
+    let section = content_area.querySelector(`#${list}`);
+    let sectionAddBtn = section.querySelector('.add-card');
+    sectionAddBtn.insertAdjacentElement('beforebegin', cardWrapper);
+    console.log(infoFooter);
+
+    
+    // CARD EVENT HANDLERS
+    let isActive = false;
+    let isHovered = false;
+
+    cardIMGWrapper.addEventListener('mouseenter', () => {
+        isHovered = true;
+        if (isActive) return;
+        setTimeout(() => {
+            if (!isHovered) return;
+            cardCover.classList.add('expand');
+            isActive = true;
+            setTimeout(() => {
+                if (!isHovered) return;
+                imgGIF.classList.add('fade-in');
+                imgFront.classList.remove('fade-out');
+                setTimeout(() => {
+                    if (!isHovered) return;
+                    cardTitle.classList.add('shown');
+                }, 200);
+                setTimeout(() => {
+                    if (!isActive) return;
+                    if (!isHovered) return;
+                    imgFront.style.opacity = '0%';
+                    setTimeout(() => {
+                        cardTitle.classList.remove('shown');
+                    }, 3500);
+                }, 700);
+            }, 100);
+        }, 500);
+    });
+
+    cardIMGWrapper.addEventListener('mouseleave', () => {
+        if(isActive) return;
+        isHovered = false;
+    });
+
+    cardCover.addEventListener('mouseleave', () => {
+        isHovered = false;
+        cardTitle.classList.remove('shown');
+        starWrapper.classList.remove('active');
+        if (!isActive) return;
+        cardCover.classList.remove('expand');
+        isActive = false;
+        setTimeout(() => {
+            imgFront.style.opacity = '100%';
+            imgGIF.classList.remove('fade-in');
+            imgGIF.classList.add('fade-out');
+            cardTitle.classList.remove('shown');
+        }, 1);
+    });
+
+    let topStars = starWrapper.querySelectorAll('.info-btn');
+    let bottomStars = starBottom.querySelectorAll('.info-btn');
+    wireRatingSystem(topStars);
+    wireRatingSystem(bottomStars);
+}
+
+function wireRatingSystem(stars) {
+    stars.forEach((star, i) => {
+        star.addEventListener('mouseover', () => {
+            stars.forEach((star, j) => {
+                i >= j ? star.classList.add('hovered') : star.classList.remove('hovered');
+            });
+        });
+        star.addEventListener('click', () => {
+            let rating = star_text.textContent.split('.');
+            let new_rating = star.getAttribute('data-rating');
+            if (new_rating == '0') {
+                star_text.textContent = rating[0];
+                hoverStars(stars, i);
+                return;
+            }
+            else if (new_rating == '10') {
+                star_text.textContent = '10';
+                hoverStars(stars, i);
+                return;
+            }
+            star.getAttribute('data') == 'top' ? rating[0] = new_rating : rating[1] = new_rating;
+            rating = rating.join('.');
+            if (rating > 10) return;
+            star_text.textContent = rating;
+            hoverStars(stars, i);
+        });
+    });
+}
+
+function hoverStars(stars, i) {
+    stars.forEach((star, j) => {
+        star.classList.remove('hovered');
+        i >= j ? star.classList.add('active') : star.classList.remove('active');
+    });
 }
 
 
